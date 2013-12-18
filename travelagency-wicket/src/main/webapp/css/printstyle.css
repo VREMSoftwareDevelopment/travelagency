@@ -1,0 +1,69 @@
+@media print {
+	.notPrinted {
+		display: none;
+	}
+}
+body {
+    background-color: white;
+ 	max-width: 1600px;
+	margin: 0 auto;
+}
+.width {
+	width: 100%;
+}
+.entryForm .label {
+    margin: 0.5em 0;
+}
+.dataview tr th {
+    border-top: 1px solid #0079D6;
+}
+.dataview, tr, th, td, .dataview tr {
+	border: 0 none;
+}
+.dataview td {
+	padding-top: 0.25em;
+	padding-bottom: 0;
+}
+.headerTable {
+	width: 100%;
+	border: none;
+	margin-bottom: 0;
+}
+.invoicePrint {
+	font-size: 120%;
+}
+.companyLogo {
+	width: 300px;
+}
+.company {
+	font-weight: bold;
+}
+.extralarge {
+	font-size: 220%;
+}
+.verylarge {
+	font-size: 200%;
+}
+.large {
+	font-size: 160%;
+}
+.larger {
+	font-size: 140%;
+}
+.label .label-value {
+	padding-left: 1em;
+}
+.invoiceNotes {
+	margin: 0;
+	padding: 0;
+}
+pre {
+	padding: 0;
+	margin: 0;
+}
+.notes {
+	padding: 0.5em;
+	border: 2px solid black;
+	font-weight: bold;
+	font-size: 100%;
+}

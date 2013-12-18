@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+	<div style="margin: 0em 1em 0em 1em;">
+		<form class="entryForm" wicket:id="form">
+			<div wicket:id="feedback">[feedback]</div>
+			<div>
+				<input type="text" wicket:id="searchText"/>
+			</div>
+			<div class="paddingTop">
+				<a class="button" wicket:id="search">
+					<wicket:message key="search"/>
+				</a>
+			</div>
+		</form>
+		<table class="marginTop dataview" wicket:id="data"></table>
+	</div>
+</wicket:panel>
+</body>
+</html>

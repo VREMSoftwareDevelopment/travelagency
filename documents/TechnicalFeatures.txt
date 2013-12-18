@@ -1,0 +1,17 @@
+Technical Features:
+	1.	Languages
+		-	JAVA
+		-	Javascript
+		-	CSS 
+		-	HTML
+	2.	Server
+		-	Spring
+		-	Hibernate
+	3.	Client
+		-	Wicket
+		-	jQuery
+		-	jQuery UI
+	3.	Database
+		-	PostgreSQL
+	4.	Build and Dependency Tool
+		-	Maven

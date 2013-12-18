@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<form class="entryForm" wicket:id="searchForm">
+		<div wicket:id="feedback">[feedback]</div>
+		<div class="leftFloat">
+			<div class="leftFloat marginRight">
+				<input type="text" size="30" wicket:id="searchText" />
+			</div>
+			<div class="leftFloat marginRight">
+				<select wicket:id="status"></select>
+			</div>
+			<div class="leftFloat">
+				<select wicket:id="systemUser"></select>
+			</div>
+		</div>
+		<div class="clearFloat paddingTop">
+			<input class="button" type="submit" wicket:message="value:search" wicket:id="searchButton" />
+			<input class="button" type="submit" wicket:message="value:clear" wicket:id="clearButton" />
+		</div>
+
+	</form>
+	<table class="dataview" wicket:id="dataTable"></table>
+	<div class="paddingTop">
+		<a class="button" wicket:id="create"><wicket:message key="addCustomer"/></a>
+	</div>
+</wicket:extend>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+	<div class="clearFloat">
+		<table class="dataview">
+			<tr>
+				<th><wicket:message key="date"/></th>
+				<th class="numberAlign"><wicket:message key="count"/></th>
+				<th class="numberAlign"><wicket:message key="salesAmount"/></th>
+				<th class="numberAlign"><wicket:message key="costAmount"/></th>
+				<th class="numberAlign"><wicket:message key="commissionAmount"/></th>
+				<th class="numberAlign"><wicket:message key="commissionReceived"/></th>
+				<th class="numberAlign"><wicket:message key="commissionVerified"/></th>
+				<th class="numberAlign"><wicket:message key="hstOnCommission"/></th>
+				<th class="numberAlign"><wicket:message key="paidAmount"/></th>
+			</tr>
+			<tr wicket:id="monthlyDistribution">
+				<td>
+					<span wicket:id="dateAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<a href="#" wicket:id="link"><span wicket:id="count"></span></a>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.saleAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.costAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.commissionAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.commissionReceivedAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.commissionVerifiedAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.taxOnCommissionAsString"></span>
+				</td>
+				<td class="numberAlign">
+					<span wicket:id="salesAmounts.paidAsString"></span>
+				</td>
+			</tr>
+		</table>
+		<div class="paddingTop">
+			<a class="button" target="_blank" wicket:id="csv"><wicket:message key="exportToCsv"/></a>
+		</div>
+	</div>
+</wicket:panel>
+</body>
+</html>

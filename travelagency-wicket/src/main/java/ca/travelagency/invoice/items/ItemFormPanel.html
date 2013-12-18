@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+	<td colspan="3">
+	</td>
+	<td colspan="6" class="paddingTop">
+		<form class="entryForm" wicket:id="form">
+			<div wicket:id="feedback">[feedback]</div>
+			<div class="leftFloat">
+				<div class="leftFloat marginRight">
+					<input type="text" size="50" wicket:id="description"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" size="10" wicket:id="price"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" size="10" wicket:id="tax"/>
+				</div>
+				<div class="leftFloat">
+					<input type="text" size="4" wicket:id="qty"/>
+				</div>
+			</div>
+			<div class="leftFloat">
+				<div class="leftFloat marginRight">
+					<input type="text" wicket:id="cancelBeforeDeparture"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" wicket:id="changeBeforeDeparture"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" wicket:id="changeAfterDeparture"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" wicket:id="bookingNumber"/>
+				</div>
+				<div class="leftFloat">
+					<span wicket:id="bookingDate"></span>
+				</div>
+			</div>
+			<div class="leftFloat">
+				<div class="leftFloat marginRight">
+					<input type="text" wicket:id="supplier"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" size="10" wicket:id="commission"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<input type="text" size="10" wicket:id="taxOnCommission"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<select wicket:id="commissionStatus"></select>
+				</div>
+			</div>
+			<div class="clearFloat paddingTop">
+				<span wicket:id="saveButton"></span>
+				<span wicket:id="resetButton"></span>
+				<span wicket:id="cancelButton"></span>
+			</div>
+		</form>
+	</td>
+</wicket:panel>
+</body>
+</html>

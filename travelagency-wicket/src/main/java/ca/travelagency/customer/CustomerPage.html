@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<form class="entryForm" wicket:id="form">
+		<div wicket:id="feedback">[feedback]</div>
+		<div class="leftFloat">
+		<div class="leftFloat marginRight">
+			<input type="text" size="6" wicket:id="salutation" />
+			<input type="text" wicket:id="firstName" />
+			<input type="text" size="30" wicket:id="lastName" />
+			<input type="text" size="30" wicket:id="companyName" />
+			<input type="text" size="30" wicket:id="email" />
+			<input type="text" wicket:id="primaryPhone" class="phone"/>
+			<input type="text" wicket:id="secondaryPhone" class="phone"/>
+		</div>
+		<div class="leftFloat marginRight">
+			<input type="text" size="50" wicket:id="address" />
+			<input type="text" size="30" wicket:id="city" />
+			<input type="text" wicket:id="province" />
+			<input type="text" wicket:id="postalCode" />
+			<input type="text" wicket:id="country" />
+			<input type="text" size="50" wicket:id="travelDocumentType" />
+			<input type="text" size="30" wicket:id="travelDocumentNumber" />
+		</div>
+		<div class="leftFloat">
+			<span wicket:id="dateOfBirth"></span>
+			<select wicket:id="status"></select>
+			<select wicket:id="systemUser"></select>
+			<textarea rows="8" cols="45" wicket:id="notes"></textarea>
+		</div>
+		</div>
+		<div class="clearFloat paddingTop">
+			<span wicket:id="saveButton"></span>
+			<span wicket:id="resetButton"></span>
+			<a class="button" wicket:id="createInvoiceButton"><wicket:message key="addInvoice"/></a>
+		</div>
+	</form>
+	<span wicket:id="invoices">[invoices]</span>
+</wicket:extend>
+</html>

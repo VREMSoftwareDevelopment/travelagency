@@ -1,0 +1,143 @@
+#set($agent = $reportsSearch.systemUser)
+#set($boldstyle = "")
+#if ($reportsSearch.showDetails)
+	#set($boldstyle = "font-weight: bold;")
+#end
+<div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+        			<div class="company">
+						<img class="companyLogo" wicket:id="logoImage" />
+						<br/>
+                    	<div class="large">$stringUtils.format($company.name)</div>
+                    </div>
+                </td>
+				<!-- Title-->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">S A L E S&nbsp;&nbsp;&nbsp;&nbsp;R E P O R T</span>&nbsp;
+					</label>
+					#if ($agent)
+                		<label class="label large">
+                			Agent:&nbsp;&nbsp;$stringUtils.format($agent.name)
+                		</label>
+					#end
+					<label class="label large">
+						Period:&nbsp;&nbsp;
+						$dateUtils.formatDate($reportsSearch.dateFrom)
+						&nbsp;-&nbsp;
+						$dateUtils.formatDate($reportsSearch.dateTo)
+					</label>
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- Invoices -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Invoice<br/>Number</th>
+    			<th>Invoice<br/>Date</th>
+    			<th>Customer<br/>Name</th>
+    			#if ($reportsSearch.showDetails)
+    				<th>Item<br/>Description</th>
+    				<th>Supplier<br/>Name</th>
+				#end
+        		<th class="numberAlign">Sales<br/>Amount</th>
+        		<th class="numberAlign">Paid<br/>Amount</th>
+    			<th class="numberAlign">Due<br/>Amount</th>
+    			<th class="numberAlign">HST On<br/>Commission</th>
+    			<th class="numberAlign">Commission<br/>Amount</th>
+    			<th class="numberAlign">Commission<br/>Received</th>
+    			<th class="numberAlign">Commission<br/>Verified</th>
+    		</tr>
+    		#foreach($invoice in $invoiceSales.invoices)
+				<tr	style="$boldstyle">
+					<td>$stringUtils.format($invoice.invoiceNumber)</td>
+        			<td>$dateUtils.formatDate($invoice.date)</td>
+        			<td>$stringUtils.format($invoice.customer.name)</td>
+    				#if ($reportsSearch.showDetails)
+						<td></td>
+						<td></td>
+    				#end
+    				#set($invoiceAmounts = $invoice.salesAmounts)
+            		<td class="numberAlign">$invoiceAmounts.saleAsString</td>
+            		<td class="numberAlign">$invoiceAmounts.paidAsString</td>
+    				<td class="numberAlign">$invoiceAmounts.dueAsString</td>
+    				<td class="numberAlign">$invoiceAmounts.taxOnCommissionAsString</td>
+    				<td class="numberAlign">$invoiceAmounts.commissionAsString</td>
+    				<td class="numberAlign">$invoiceAmounts.commissionReceivedAsString</td>
+    				<td class="numberAlign">$invoiceAmounts.commissionVerifiedAsString</td>
+        		</tr>
+    			#if ($reportsSearch.showDetails)
+        			#foreach($item in $invoice.invoiceItems)
+    					#set($itemAmounts = $item.salesAmounts)
+            			<tr>
+            				<td></td>
+            				<td></td>
+            				<td></td>
+            				<td>$stringUtils.format($item.description)</td>
+            				<td>$stringUtils.format($item.supplier)</td>
+                    		<td class="numberAlign">$itemAmounts.saleAsString</td>
+                    		<td></td>
+            				<td></td>
+            				<td class="numberAlign">$itemAmounts.taxOnCommissionAsString</td>
+            				<td class="numberAlign">$itemAmounts.commissionAsString</td>
+       						<td class="numberAlign">
+            					#if ($item.commissionReceived)
+        							<img src="images/checked.png"/>
+            					#else
+        							<img src="images/blank.png"/>
+            					#end
+               				</td>
+       						<td class="numberAlign">
+            					#if ($item.commissionVerified)
+        							<img src="images/checked.png"/>
+            					#else
+        							<img src="images/blank.png"/>
+            					#end
+               				</td>
+                   		</tr>
+    				#end
+        			<tr style="height: 0.5em;">
+        			</tr>
+    			#end
+    		#end
+    		<tr>
+    			<th colspan="3">Totals</th>
+    			#if ($reportsSearch.showDetails)
+    				<th></th>
+    				<th></th>
+				#end
+				#set($totalAmounts = $invoiceSales.totalSales)
+        		<th class="numberAlign">$totalAmounts.saleAsString</th>
+        		<th class="numberAlign">$totalAmounts.paidAsString</th>
+				<th class="numberAlign">$totalAmounts.dueAsString</th>
+				<th class="numberAlign">$totalAmounts.taxOnCommissionAsString</th>
+				<th class="numberAlign">$totalAmounts.commissionAsString</th>
+				<th class="numberAlign">$totalAmounts.commissionReceivedAsString</th>
+				<th class="numberAlign">$totalAmounts.commissionVerifiedAsString</th>
+			</tr>
+   			#if ($agent)
+        		<tr>
+        			<th colspan="3">$agent.name Estimated Commission using $agent.commissionRate%</th>
+        			#if ($reportsSearch.showDetails)
+        				<th></th>
+        				<th></th>
+    				#end
+            		<th></th>
+            		<th></th>
+    				<th></th>
+    				<th></th>
+    				<th class="numberAlign">$invoiceSales.commissionEstimatedAsString</th>
+    				<th class="numberAlign">$invoiceSales.commissionRPayableAsString</th>
+    				<th class="numberAlign">$invoiceSales.commissionVPayableAsString</th>
+    			</tr>
+			#end
+    	</table>
+    </div>
+</div>

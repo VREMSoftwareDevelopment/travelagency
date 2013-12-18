@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:panel>
+	<div class="entryForm" style="width: auto; margin: 0.5em;">
+		<div class="leftFloat" style="width: 100%;">
+			<div class="leftFloat marginRight">
+				<label class="label">
+					<wicket:message key="invoice.panel.customer"/>
+				</label>
+				<span wicket:id="customer"></span>
+			</div>
+			<div class="leftFloat marginRight">
+				<label class="label">
+					<wicket:message key="invoice.panel.number"/>&nbsp;<span class="label-value" wicket:id="invoiceNumber"></span>
+				</label>
+				<label class="label">
+					<wicket:message key="invoice.panel.date"/>&nbsp;<span class="label-value" wicket:id="date"></span>
+				</label>
+				<label class="label">
+					<wicket:message key="invoice.panel.agent"/>&nbsp;<span class="label-value" wicket:id="systemUser.name"></span>
+				</label>
+				<label class="label">
+					<wicket:message key="invoice.panel.billCompany"/>&nbsp;<span class="label-value" wicket:id="billCompany"></span>
+				</label>
+				<label class="label">
+					<wicket:message key="invoice.panel.totalDueDate"/>&nbsp;<span class="label-value" wicket:id="totalDueDate"></span>
+				</label>
+				<label class="label">
+					<wicket:message key="invoice.panel.status"/>&nbsp;<span class="label-value" wicket:id="status"></span>
+				</label>
+			</div>
+			<div class="rightFloat">
+				<span wicket:id="totals"></span>
+			</div>
+		</div>
+		<div class="leftFloat" style="width: 100%;">
+			<div class="leftFloat" style="width: 50%;">
+				<table class="dataview" wicket:id="invoiceDestinations"></table>
+			</div>
+			<div class="rightFloat" style="width: 49%;">
+				<table class="dataview" wicket:id="invoiceTravelers"></table>
+			</div>
+		</div>
+		<div class="leftFloat" style="width: 100%;">
+			<table class="dataview">
+				<tr>
+					<th>
+						<wicket:message key="invoice.panel.item.product"/><br/>
+						<wicket:message key="invoice.panel.item.supplier"/><br/>
+					</th>
+					<th class="numberAlign">
+						<wicket:message key="invoice.panel.item.price"/><br/>
+						<wicket:message key="invoice.panel.item.commission"/>
+					</th>
+					<th class="numberAlign">
+						<wicket:message key="invoice.panel.item.tax"/><br/>
+						<wicket:message key="invoice.panel.item.hstOnCommission"/>
+					</th>
+					<th class="numberAlign">
+						<wicket:message key="invoice.panel.item.qty"/><br/>
+						&nbsp;
+					</th>
+					<th class="numberAlign">
+						<wicket:message key="invoice.panel.item.totalPrice"/><br/>
+						<wicket:message key="invoice.panel.item.totalCommission"/>
+					</th>
+					<th>
+						<wicket:message key="invoice.panel.item.bookingNumber"/><br/>
+						<wicket:message key="invoice.panel.item.bookingDate"/>
+					</th>
+				</tr>
+				<tr wicket:id="invoiceItems">
+					<td>
+						<span wicket:id="description"></span><br/>
+						<span wicket:id="supplier"></span><br/>
+						<table class="dataview-sub">
+							<tr>
+								<th><wicket:message key="invoice.panel.item.cancelBeforeDeparture"/></th>
+								<th><wicket:message key="invoice.panel.item.changeBeforeDeparture"/></th>
+								<th><wicket:message key="invoice.panel.item.changeAfterDeparture"/></th>
+							</tr>
+							<tr>
+								<td>
+									<span wicket:id="cancelBeforeDeparture"></span><br/>
+								</td>
+								<td>
+									<span wicket:id="changeBeforeDeparture"></span><br/>
+								</td>
+								<td>
+									<span wicket:id="changeAfterDeparture"></span><br/>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="numberAlign">
+						<span wicket:id="priceAsString"></span><br/>
+						<span wicket:id="commissionAsString"></span>
+					</td>
+					<td class="numberAlign">
+						<span wicket:id="taxAsString"></span><br/>
+						<span wicket:id="taxOnCommissionAsString"></span>
+					</td>
+					<td class="numberAlign">
+						<span wicket:id="qty"></span><br/>
+					</td>
+					<td class="numberAlign">
+						<span class="label-value" wicket:id="salesAmounts.saleAsString"></span>
+						<span class="label-value" wicket:id="salesAmounts.commissionAsString"></span>
+						<span wicket:id="commissionStatus"></span>
+					</td>
+					<td>
+						<span wicket:id="bookingNumber"></span><br/>
+						<span wicket:id="bookingDate"></span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="clearFloat leftFloat" style="width: 100%;">
+			<div class="leftFloat" style="width: 70%;">
+				<table class="dataview" wicket:id="invoiceNotes"></table>
+			</div>
+			<div class="rightFloat" style="width: 29%;">
+				<table class="dataview" wicket:id="invoicePayments"></table>
+			</div>
+		</div>
+	</div>
+</wicket:panel>
+</html>

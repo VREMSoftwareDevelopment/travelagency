@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="province_1">
+		<sql>
+			INSERT INTO province (name) VALUES ('Alberta');
+			INSERT INTO province (name) VALUES ('British Columbia');
+			INSERT INTO province (name) VALUES ('Manitoba');
+			INSERT INTO province (name) VALUES ('New Brunswick');
+			INSERT INTO province (name) VALUES ('Newfoundland and Labrador');
+			INSERT INTO province (name) VALUES ('Northwest Territories');
+			INSERT INTO province (name) VALUES ('Nova Scotia');
+			INSERT INTO province (name) VALUES ('Nunavut');
+			INSERT INTO province (name) VALUES ('Ontario');
+			INSERT INTO province (name) VALUES ('Prince Edward Island');
+			INSERT INTO province (name) VALUES ('Quebec');
+			INSERT INTO province (name) VALUES ('Saskatchewan');
+			INSERT INTO province (name) VALUES ('Yukon');
+			INSERT INTO province (name) VALUES ('Alabama');
+			INSERT INTO province (name) VALUES ('Alaska');
+			INSERT INTO province (name) VALUES ('Arizona');
+			INSERT INTO province (name) VALUES ('Arkansas');
+			INSERT INTO province (name) VALUES ('California');
+			INSERT INTO province (name) VALUES ('Colorado');
+			INSERT INTO province (name) VALUES ('Connecticut');
+			INSERT INTO province (name) VALUES ('Delaware');
+			INSERT INTO province (name) VALUES ('District of Columbia');
+			INSERT INTO province (name) VALUES ('Florida');
+			INSERT INTO province (name) VALUES ('Georgia');
+			INSERT INTO province (name) VALUES ('Hawaii');
+			INSERT INTO province (name) VALUES ('Idaho');
+			INSERT INTO province (name) VALUES ('Illinois');
+			INSERT INTO province (name) VALUES ('Indiana');
+			INSERT INTO province (name) VALUES ('Iowa');
+			INSERT INTO province (name) VALUES ('Kansas');
+			INSERT INTO province (name) VALUES ('Kentucky');
+			INSERT INTO province (name) VALUES ('Louisiana');
+			INSERT INTO province (name) VALUES ('Maine');
+			INSERT INTO province (name) VALUES ('Maryland');
+			INSERT INTO province (name) VALUES ('Massachusetts');
+			INSERT INTO province (name) VALUES ('Michigan');
+			INSERT INTO province (name) VALUES ('Minnesota');
+			INSERT INTO province (name) VALUES ('Mississippi');
+			INSERT INTO province (name) VALUES ('Missouri');
+			INSERT INTO province (name) VALUES ('Montana');
+			INSERT INTO province (name) VALUES ('Nebraska');
+			INSERT INTO province (name) VALUES ('Nevada');
+			INSERT INTO province (name) VALUES ('New Hampshire');
+			INSERT INTO province (name) VALUES ('New Jersey');
+			INSERT INTO province (name) VALUES ('New Mexico');
+			INSERT INTO province (name) VALUES ('New York');
+			INSERT INTO province (name) VALUES ('North Carolina');
+			INSERT INTO province (name) VALUES ('North Dakota');
+			INSERT INTO province (name) VALUES ('Ohio');
+			INSERT INTO province (name) VALUES ('Oklahoma');
+			INSERT INTO province (name) VALUES ('Oregon');
+			INSERT INTO province (name) VALUES ('Pennsylvania');
+			INSERT INTO province (name) VALUES ('Rhode Island');
+			INSERT INTO province (name) VALUES ('South Carolina');
+			INSERT INTO province (name) VALUES ('South Dakota');
+			INSERT INTO province (name) VALUES ('Tennessee');
+			INSERT INTO province (name) VALUES ('Texas');
+			INSERT INTO province (name) VALUES ('Utah');
+			INSERT INTO province (name) VALUES ('Vermont');
+			INSERT INTO province (name) VALUES ('Virginia');
+			INSERT INTO province (name) VALUES ('Washington');
+			INSERT INTO province (name) VALUES ('West Virginia');
+			INSERT INTO province (name) VALUES ('Wisconsin');
+			INSERT INTO province (name) VALUES ('Wyoming');
+		</sql>
+	</changeSet>
+</databaseChangeLog>

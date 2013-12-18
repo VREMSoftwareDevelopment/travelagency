@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<form class="entryForm" wicket:id="form">
+		<div wicket:id="feedback">[feedback]</div>
+		<div class="leftFloat">
+			<div class="leftFloat marginRight">
+				<input type="text" wicket:id="name" />
+				<input type="password" wicket:id="password" />
+				<input type="password" wicket:id="confirmPassword" />
+			</div>
+			<div class="leftFloat marginRight">
+				<input type="text" wicket:id="firstName" />
+				<input type="text" size="30" wicket:id="lastName" />
+			</div>
+			<div class="leftFloat marginRight">
+				<input type="text" size="30" wicket:id="email" />
+				<input type="text" wicket:id="primaryPhone" class="phone"/>
+				<input type="text" wicket:id="secondaryPhone" class="phone"/>
+			</div>
+			<div class="leftFloat">
+				<input type="number" size="6" wicket:id="commissionRate"/>
+				<input type="checkbox" wicket:id="active"/>
+			</div>
+		</div>
+		<div class="clearFloat paddingTop">
+			<span wicket:id="saveButton"></span>
+			<span wicket:id="resetButton"></span>
+		</div>
+	</form>
+	<div class="marginTop detailsTab ui-tabs" wicket:id="details">[Details]</div>
+</wicket:extend>
+</html>

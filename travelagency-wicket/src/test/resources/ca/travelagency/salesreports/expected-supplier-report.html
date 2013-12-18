@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<meta charset="utf-8" />
+
+	<title wicket:id="title">Supplier Sales Report</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/reset-fonts-grids-min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/base-min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/printstyle.css"/>
+</head>
+<body>
+	<div wicket:id="preview"><wicket:panel><div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+        			<div class="company">
+						<br/>
+                    	<div class="large"></div>
+                    </div>
+                </td>
+				<!-- Title-->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">S U P P L I E R&nbsp;&nbsp;&nbsp;&nbsp;R E P O R T</span>&nbsp;
+					</label>
+					                		<label class="label large">
+                			Agent:&nbsp;&nbsp;Name Test0
+                		</label>
+										<label class="label large">
+						Period:&nbsp;&nbsp;
+						September 1, 2011
+						&nbsp;-&nbsp;
+						September 30, 2011
+					</label>
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- Supplier Distribution -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+				<th>Supplier</th>
+    			<th class="numberAlign">Count</th>
+    			    				<th>Invoice<br/>Number</th>
+    				<th>Invoice<br/>Date</th>
+    				<th>Customer<br/>Name</th>
+    				<th>Item<br/>Description</th>
+				        		<th class="numberAlign">Cost<br/>Amount</th>
+    			<th class="numberAlign">HST On<br/>Commission</th>
+    			<th class="numberAlign">Commission<br/>Amount</th>
+    			<th class="numberAlign">Commission<br/>Received</th>
+    			<th class="numberAlign">Commission<br/>Verified</th>
+    		</tr>
+    						<tr	style="font-weight: bold;">
+      				<td>Supplier-3</td>
+               		<td class="numberAlign">1</td>
+        			    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				               		<td class="numberAlign">-$1,071.00</td>
+       				<td class="numberAlign">-$9.00</td>
+       				<td class="numberAlign">-$270.00</td>
+					<td class="numberAlign">$0.00</td>
+					<td class="numberAlign">$0.00</td>
+				</tr>
+    			        			            			<tr>
+              				<td></td>
+                       		<td></td>
+                			<td>0000000000</td>
+                			<td>September 10, 2011</td>
+                			<td>Mr Customerfirstname0 Customerlastname0</td>
+               				<td>Item-3</td>
+                       		<td class="numberAlign">-$1,071.00</td>
+               				<td class="numberAlign">-$9.00</td>
+               				<td class="numberAlign">-$270.00</td>
+        					<td class="numberAlign">
+        															<img src="../images/blank.png"/>
+        						        					</td>
+        					<td class="numberAlign">
+        															<img src="../images/blank.png"/>
+        						        					</td>
+                		</tr>
+										<tr style="height: 0.5em;">
+					</tr>
+    			    		    		<tr>
+    			<th colspan="2">Totals</th>
+    			    				<th></th>
+    				<th></th>
+    				<th></th>
+    				<th></th>
+				        		<th class="numberAlign">-$1,071.00</th>
+				<th class="numberAlign">-$9.00</th>
+				<th class="numberAlign">-$270.00</th>
+				<th class="numberAlign">$0.00</th>
+				<th class="numberAlign">$0.00</th>
+			</tr>
+    	</table>
+    </div>
+</div>
+</wicket:panel></div>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="../js/travelagency.js"></script>
+<script type="text/javascript">/*<![CDATA[*/$(function(){TravelAgency.buttons();});/*]]>*/</script>
+</body>
+</html>

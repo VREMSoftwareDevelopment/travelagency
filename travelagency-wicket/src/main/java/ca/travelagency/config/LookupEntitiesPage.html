@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<form class="paddingTop entryForm" wicket:id="searchForm">
+		<div>
+			<input type="text" size="50" wicket:id="name"/>
+		</div>
+		<div class="paddingTop">
+			<input class="button" type="submit" wicket:message="value:search" wicket:id="searchButton">
+			<input class="button" type="submit" wicket:message="value:clear" wicket:id="clearButton"/>
+		</div>
+	</form>
+	<table class="dataview" wicket:id="dataTable"></table>
+ 	<div class="paddingTop">
+		<div class="formTitle">
+			<span wicket:id="addFormTitle1"></span>&nbsp;<span wicket:id="addFormTitle2"></span>
+		</div>
+		<form class="entryForm" wicket:id="addForm">
+			<div>
+				<input type="text" size="50" wicket:id="name"/>
+			</div>
+			<div class="paddingTop">
+				<span wicket:id="saveButton"></span>
+				<span wicket:id="resetButton"></span>
+			</div>
+		</form>
+	</div>
+</wicket:extend>
+</html>

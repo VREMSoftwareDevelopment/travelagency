@@ -1,0 +1,66 @@
+#set($agent = $reportsSearch.systemUser)
+<div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+        			<div class="company">
+						<img class="companyLogo" wicket:id="logoImage" />
+						<br/>
+                    	<div class="large">$stringUtils.format($company.name)</div>
+                    </div>
+                </td>
+				<!-- Title-->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">D U E&nbsp;&nbsp;&nbsp;&nbsp;I N V O I C E S&nbsp;&nbsp;&nbsp;&nbsp;R E P O R T</span>&nbsp;
+					</label>
+					#if ($agent)
+                		<label class="label large">
+                			Agent:&nbsp;&nbsp;$stringUtils.format($agent.name)
+                		</label>
+					#end
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- Invoices -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Invoice<br/>Number</th>
+    			<th>Invoice<br/>Date</th>
+    			<th>Customer<br/>Name</th>
+    			<th>Customer<br/>Primary Phone</th>
+    			<th>Customer<br/>Email</th>
+    			<th>Due Date</th>
+        		<th class="numberAlign">Sales<br/>Amount</th>
+        		<th class="numberAlign">Paid<br/>Amount</th>
+    			<th class="numberAlign">Due<br/>Amount</th>
+    		</tr>
+    		#foreach($invoice in $invoiceSales.invoices)
+				<tr>
+					<td>$stringUtils.format($invoice.invoiceNumber)</td>
+        			<td>$dateUtils.formatDate($invoice.date)</td>
+        			<td>$stringUtils.format($invoice.customer.name)</td>
+        			<td>$stringUtils.format($invoice.customer.primaryPhone)</td>
+        			<td>$stringUtils.format($invoice.customer.email)</td>
+        			<td>$dateUtils.formatDate($invoice.totalDueDate)</td>
+    				#set($invoiceAmounts = $invoice.salesAmounts)
+            		<td class="numberAlign">$invoiceAmounts.saleAsString</td>
+            		<td class="numberAlign">$invoiceAmounts.paidAsString</td>
+    				<td class="numberAlign">$invoiceAmounts.dueAsString</td>
+        		</tr>
+    		#end
+    		<tr>
+    			<th colspan="6">Totals</th>
+				#set($totalAmounts = $invoiceSales.totalSales)
+        		<th class="numberAlign">$totalAmounts.saleAsString</th>
+        		<th class="numberAlign">$totalAmounts.paidAsString</th>
+				<th class="numberAlign">$totalAmounts.dueAsString</th>
+			</tr>
+    	</table>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<div>
+		<form target="_blank" class="entryForm" wicket:id="searchForm">
+			<div wicket:id="feedback">[feedback]</div>
+			<div class="leftFloat">
+				<div class="leftFloat marginRight">
+					<span wicket:id="dateFrom"></span>
+				</div>
+				<div class="leftFloat marginRight">
+					<span wicket:id="dateTo"></span>
+				</div>
+				<div class="leftFloat marginRight">
+					<select wicket:id="systemUser"></select>
+				</div>
+				<div class="leftFloat">
+					<input type="checkbox" wicket:id="showDetails"/>
+				</div>
+			</div>
+			<div class="clearFloat">
+				<div class="paddingTop">
+					<input class="button" type="submit" wicket:message="value:salesReport" wicket:id="salesReport"/>
+				</div>
+				<div class="paddingTop">
+					<input class="button" type="submit" wicket:message="value:monthlyReport" wicket:id="monthlyReport"/>
+				</div>
+				<div class="paddingTop">
+					<input class="button" type="submit" wicket:message="value:paymentReport" wicket:id="paymentReport"/>
+				</div>
+				<div class="paddingTop">
+					<input class="button" type="submit" wicket:message="value:supplierReport" wicket:id="supplierReport"/>
+				</div>
+				<div class="paddingTop">
+					<input class="button" type="submit" wicket:message="value:productReport" wicket:id="productReport"/>
+				</div>
+				<div class="paddingTop">
+					<input class="button" type="submit" wicket:message="value:dueInvoicesReport" wicket:id="dueInvoicesReport"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</wicket:extend>
+</html>

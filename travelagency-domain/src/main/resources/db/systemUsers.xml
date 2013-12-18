@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="systemUser_1">
+		<comment>add admin to system user table</comment>
+		<insert tableName="system_user">
+			<column name="name" value="Admin" />
+			<column name="first_name" value="Admin" />
+			<column name="last_name" value="Admin" />
+			<column name="email" value="admin@email.com" />
+			<column name="primary_phone" value="1111111111" />
+			<column name="secondary_phone" value="2222222222" />
+			<column name="password" value="RUiF1JFajA/o2YnJ2zRXy0GC3fPGd9Kv"/>
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="active" valueBoolean="true"/>
+			<column name="commission_rate" valueNumeric="0"/>
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="systemUser_2">
+		<sql>
+			INSERT INTO system_user_role (system_user_id, role)
+			VALUES ((SELECT id FROM system_user WHERE name='Admin'), 'ADMIN');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="systemUser_3">
+		<sql>
+			INSERT INTO system_user_role (system_user_id, role)
+			VALUES ((SELECT id FROM system_user WHERE name='Admin'), 'AGENT');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="systemUser_4">
+		<insert tableName="system_user">
+			<column name="name" value="Agent" />
+			<column name="first_name" value="Agent" />
+			<column name="last_name" value="Agent" />
+			<column name="email" value="agent@email.com" />
+			<column name="primary_phone" value="2221111111"/>
+			<column name="secondary_phone" value="2222221111"/>
+			<column name="password" value="Pq0vTZ7ePhgqxwPUk6G8tvaILiVIgCHX"/>
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="active" valueBoolean="true"/>
+			<column name="commission_rate" valueNumeric="4.15"/>
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="systemUser_5">
+		<sql>
+			INSERT INTO system_user_role (system_user_id, role)
+			VALUES ((SELECT id FROM system_user WHERE name='Agent'), 'AGENT');
+		</sql>
+	</changeSet>
+</databaseChangeLog>

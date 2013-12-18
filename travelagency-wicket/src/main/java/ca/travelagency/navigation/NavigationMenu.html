@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+	<ul class="menubar">
+		<li>
+			<a wicket:id="home"><wicket:message key="page.home"/></a>
+		</li>
+		<li>
+			<a wicket:id="customers"><wicket:message key="page.customers"/></a>
+		</li>
+		<li>
+			<a wicket:id="invoices"><wicket:message key="page.invoices"/></a>
+		</li>
+		<li>
+			<a wicket:id="reports"><wicket:message key="page.reports"/></a>
+		</li>
+		<li>
+			<a wicket:id="myprofile"><wicket:message key="page.myprofile"/></a>
+		</li>
+		<wicket:container wicket:id="reconciliationMenu"></wicket:container>
+		<li>
+			<a wicket:id="systemUsers"><wicket:message key="page.systemUsers"/></a>
+		</li>
+		<wicket:container wicket:id="configMenu"></wicket:container>
+	</ul>
+</wicket:panel>
+</body>
+</html>

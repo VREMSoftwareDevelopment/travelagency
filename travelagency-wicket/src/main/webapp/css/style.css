@@ -1,0 +1,356 @@
+/* main */
+html, body {
+	background-color: #F5F8F9;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+header .header, section.body {
+	margin: 0 auto;
+	min-width: 1088px;
+	max-width: 1088px;
+}
+
+section.main {
+	margin: 0 1em;
+}
+
+header {
+	margin-bottom: 0.5em;
+	background: #2191C0 url(images/ui-bg_gloss-wave_75_2191c0_500x100.png) repeat-x;
+	font-weight: bold;
+}
+
+footer, nav {
+	background: #79C9EC url(images/ui-bg_glass_75_79c9ec_1x400.png) 50% 50% repeat-x;
+	font-weight: bold;
+}
+
+nav {
+	margin-bottom: 0.5em;
+	float: left;
+	width: 100%;
+}
+
+footer {
+	margin-top: 0.5em;
+}
+
+input, textarea, select {
+	background-color: #CCEBFF;
+	border: #005C99 1px solid;
+	font-size: 11pt;
+	padding: 1px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+input:focus, textarea:focus, select:focus {
+	background-color: #E6F5FF;
+	border: #005C99 2px solid;
+}
+
+.leftFloat {
+	float: left;
+}
+.rightFloat {
+	float: right;
+}
+.clearFloat {
+	clear: both;
+}
+
+.numberAlign {
+	text-align: right;
+}
+
+.margin {
+	margin: .5em 1em;
+}
+
+.marginRight {
+	margin-right: 1em;
+}
+
+.paddingTop {
+	padding-top: 1em;
+}
+
+.label-value {
+	display: block;
+	color: #0000CC;
+	font-weight: bold;
+}
+
+.value-error {
+	color: #CC0033;
+	font-weight: bold;
+}
+
+.value-info {
+	color: #009933;
+	font-weight: bold;
+}
+.value-success {
+	color: #009933;
+	font-weight: bold;
+}
+
+.pageTitle, .formTitle {
+	clear: both;
+	font-weight: bold;
+	font-size: larger;
+	text-align: center;
+	color: black;
+	padding: .25em;
+	background-color: #D0E5F5;
+}
+
+/* header */
+.title {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 1em 0em 0em 0em;
+}
+
+.companyName {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.companyLogo {
+	height: 50px;
+}
+
+/* footer */
+.footer {
+	width: 100%;
+	float: left;
+}
+
+/* table dataview */
+.detailsLine {
+	border-top: 2px solid #0079D6;
+}
+
+.detailsTab .dataview {
+	margin: 0;
+}
+
+.detailsTab .tab-row ul li {
+    list-style: none;
+    display: inline;
+}
+
+.dataview {
+	width: 100%;
+	margin: 1em 0em 0em 0em;
+	border-top: 2px solid #0079D6;
+	border-bottom: 2px solid #0079D6;
+	font-size: 1em;
+	font-family: arial;
+}
+
+.dataview caption {
+	text-align: left;
+}
+
+.dataview tr.odd {
+	background-color: #DDDDDD;
+}
+
+.dataview .numberAlign {
+	text-align: right;
+}
+
+.dataview tr th {
+	color: black;
+	background-color: #D0E5F5;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.dataview tr td {
+	vertical-align: top;
+}
+
+.dataview th, .dataview td {
+	border: none;
+}
+
+.dataview tr th.wicket_orderDown {
+	background-image: url(images/arrow_down.png);
+}
+
+.dataview tr th.wicket_orderUp {
+	background-image: url(images/arrow_up.png);
+}
+
+.dataview tr th.wicket_orderNone {
+	background-image: url(images/arrow_off.png);
+}
+
+.dataview tr th a {
+	font-weight: normal;
+}
+
+.dataview #message {
+	padding-left: 3px;
+}
+
+.dataview caption {
+	padding-bottom: 2px;
+}
+
+.dataview .control {
+	width: 24px;
+}
+
+.dataview .navigation {
+	font-weight: bold;
+}
+
+.dataview-sub, .dataview-sub tr {
+	border: none;
+	margin-bottom: 0;
+}
+
+.dataview-sub tr th {
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+}
+
+.dataview-sub tr td {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* entry form */
+.entryForm {
+	width: 100%;
+}
+
+.entryForm div input {
+	margin-left: 0;
+}
+
+.entryForm .required {
+	color: red;
+	margin: 0 1em 0 .25em;
+}
+
+.entryForm .label {
+	font-weight: bold;
+	display: block;
+	margin: .5em .5em .5em 0px;
+}
+
+.entryForm .labelInline {
+	font-weight: bold;
+	display: inline;
+	margin: 1em 0.5em 1em 0.5em;
+}
+
+.entryForm .label .label-value {
+	float: right;
+}
+
+.entryForm label.error {
+	color: #CC0033;
+	font-weight: bold;
+}
+
+.entryForm input.error {
+	background-color: #FF9900;
+	border: 2px solid #CC0033;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* feedback panel */
+.feedbackPanelERROR {
+	color: #CC0033;
+	list-style: circle;
+	font-weight: bold;
+}
+
+.feedbackPanelINFO {
+	color: #009933;
+	list-style: circle;
+	font-weight: bold;
+}
+
+.feedbackPanelSUCCESS {
+	color: #009933;
+	list-style: circle;
+	font-weight: bold;
+}
+
+/* signIn panel */
+.signInPanel th, .signInPanel td {
+	border: none;
+}
+
+/* menubar */
+.menubar  {
+	float: left;
+	width: 100%;
+	margin: 0;
+}
+
+.menubar ul, .menubar li {
+	list-style: none;
+}
+
+.menubar > li {
+	float: left;
+}
+
+.menubar li a {
+	display: block;
+	height: 2em;
+	line-height: 2em;
+	padding: 0 1.5em;
+	text-decoration: none;
+}
+
+.menubar ul {
+	position: absolute;
+ 	display: none;
+	z-index: 999;
+}
+
+.menubar li:hover ul {
+	display: block;
+}
+
+.menubar > li > a {
+	color: #026890;
+}
+
+.menubar .selected {
+	color: #000000;
+}
+
+.menubar > li:hover > a, .menubar ul li:hover a {
+	background: #0078AE url(images/ui-bg_glass_45_0078ae_1x400.png) 50% 50% repeat-x;
+	color: #FFFFFF;
+}
+
+.menubar ul {
+	border: 1px solid #448DAE;
+	background: #79C9EC url(images/ui-bg_glass_75_79c9ec_1x400.png) 50% 50% repeat-x;
+	color: #026890;
+	margin: 0;
+}
+
+.menubar ul li a {
+	color: #026890;
+}

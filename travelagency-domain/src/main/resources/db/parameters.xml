@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="parameter_1">
+		<sql>
+			INSERT INTO parameter (name, value)
+			VALUES ('DeparturePlace', 'Toronto');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="parameter_2">
+		<sql>
+			INSERT INTO parameter (name, value)
+			VALUES ('InvoiceNote1',
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Medical                            DECLINED&lt;/span&gt;&lt;/pre&gt;');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="parameter_3">
+		<sql>
+			INSERT INTO parameter (name, value)
+			VALUES ('InvoiceNote2',
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Cancellation/Interruption          DECLINED&lt;/span&gt;&lt;/pre&gt;');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="parameter_4">
+		<sql>
+			INSERT INTO parameter (name, value)
+			VALUES ('TravelDocumentType', 'Canadian Passport');
+		</sql>
+	</changeSet>
+</databaseChangeLog>

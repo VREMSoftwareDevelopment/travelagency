@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<form class="entryForm" wicket:id="form">
+		<div wicket:id="feedback">[feedback]</div>
+		<div class="leftFloat" style="width: 100%;">
+			<div class="leftFloat marginRight">
+				<span wicket:id="customerPanel"></span>
+			</div>
+			<div class="leftFloat marginRight">
+				<div class="leftFloat marginRight">
+					<input type="text" size="12" wicket:id="invoiceNumber"/>
+					<input type="checkbox" wicket:id="billCompany"/>
+				</div>
+				<div class="leftFloat marginRight">
+					<span wicket:id="date"></span>
+					<span wicket:id="totalDueDate"></span>
+				</div>
+				<div class="leftFloat">
+					<select wicket:id="status"></select>
+					<select wicket:id="systemUser"></select>
+				</div>
+			</div>
+			<div class="rightFloat">
+				<span wicket:id="totalsPanel"></span>
+			</div>
+		</div>
+		<div class="clearFloat paddingTop">
+			<span wicket:id="saveButton"></span>
+			<span wicket:id="resetButton"></span>
+			<a href="#" target="_blank" class="button" wicket:id="previewButton"><wicket:message key="invoice.preview"/></a>
+		</div>
+	</form>
+	<div class="marginTop detailsTab ui-tabs" wicket:id="details">[Details]</div>
+</wicket:extend>
+</html>

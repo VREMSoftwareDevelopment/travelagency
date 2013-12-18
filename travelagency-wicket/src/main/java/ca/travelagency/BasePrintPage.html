@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<meta charset="utf-8" />
+	<title wicket:id="title"></title>
+	<link rel="stylesheet" type="text/css" href="css/reset-fonts-grids-min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/base-min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/printstyle.css"/>
+</head>
+<body>
+	<div wicket:id="preview"></div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.custom.js"></script>
+	<script type="text/javascript" src="js/travelagency.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			TravelAgency.buttons();
+		});
+	</script>
+</body>
+</html>

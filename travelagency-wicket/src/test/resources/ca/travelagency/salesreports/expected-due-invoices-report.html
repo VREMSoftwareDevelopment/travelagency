@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<meta charset="utf-8" />
+
+	<title wicket:id="title">Invoices Report</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/reset-fonts-grids-min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/base-min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/printstyle.css"/>
+</head>
+<body>
+	<div wicket:id="preview"><wicket:panel><div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+        			<div class="company">
+						<br/>
+                    	<div class="large"></div>
+                    </div>
+                </td>
+				<!-- Title-->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">D U E&nbsp;&nbsp;&nbsp;&nbsp;I N V O I C E S&nbsp;&nbsp;&nbsp;&nbsp;R E P O R T</span>&nbsp;
+					</label>
+					                		<label class="label large">
+                			Agent:&nbsp;&nbsp;Name Test0
+                		</label>
+					            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- Invoices -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Invoice<br/>Number</th>
+    			<th>Invoice<br/>Date</th>
+    			<th>Customer<br/>Name</th>
+    			<th>Customer<br/>Primary Phone</th>
+    			<th>Customer<br/>Email</th>
+    			<th>Due Date</th>
+        		<th class="numberAlign">Sales<br/>Amount</th>
+        		<th class="numberAlign">Paid<br/>Amount</th>
+    			<th class="numberAlign">Due<br/>Amount</th>
+    		</tr>
+    						<tr>
+					<td>0000000000</td>
+        			<td>September 10, 2011</td>
+        			<td>Mr Customerfirstname0 Customerlastname0</td>
+        			<td>(111) 111-1111</td>
+        			<td>Customeremail0@email.com</td>
+        			<td>September 25, 2011</td>
+    				            		<td class="numberAlign">-$1,350.00</td>
+            		<td class="numberAlign">$400.00</td>
+    				<td class="numberAlign">-$1,750.00</td>
+        		</tr>
+    		    		<tr>
+    			<th colspan="6">Totals</th>
+				        		<th class="numberAlign">-$1,350.00</th>
+        		<th class="numberAlign">$400.00</th>
+				<th class="numberAlign">-$1,750.00</th>
+			</tr>
+    	</table>
+    </div>
+</div></wicket:panel></div>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="../js/travelagency.js"></script>
+<script type="text/javascript">/*<![CDATA[*/$(function(){TravelAgency.buttons();});/*]]>*/</script>
+</body>
+</html>

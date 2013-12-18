@@ -1,0 +1,27 @@
+div.wicket-aa-container {
+	border: #000000 1px solid;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 10px 10px 5px #888888;
+	-webkit-box-shadow: 10px 10px 5px #888888; /* Safari and Chrome */
+}
+
+div.wicket-aa {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 11pt;
+	background-color: #FFFFFF;
+	padding: 2px;
+	text-align: left;
+}
+
+div.wicket-aa ul {
+	list-style:	none;
+	padding: 2px;
+	margin:	0;
+}
+
+div.wicket-aa ul li.selected {
+ 	background-color: #CCEBFF;
+	padding: 2px;
+	margin:	0;
+}

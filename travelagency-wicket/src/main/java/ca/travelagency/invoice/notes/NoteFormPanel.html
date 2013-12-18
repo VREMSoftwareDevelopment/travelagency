@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+	<td colspan="2">
+	</td>
+	<td colspan="3" class="paddingTop">
+		<form class="entryForm" wicket:id="form">
+			<div wicket:id="feedback">[feedback]</div>
+			<div class="leftFloat">
+				<div class="leftFloat marginRight">
+					<textarea rows="4" cols="100" wicket:id="text"></textarea>
+				</div>
+				<div class="leftFloat">
+					<input type="checkbox" wicket:id="privateNote"/>
+				</div>
+			</div>
+			<div class="clearFloat paddingTop">
+				<span wicket:id="saveButton"></span>
+				<span wicket:id="resetButton"></span>
+				<span wicket:id="cancelButton"></span>
+			</div>
+		</form>
+	</td>
+</wicket:panel>
+</body>
+</html>

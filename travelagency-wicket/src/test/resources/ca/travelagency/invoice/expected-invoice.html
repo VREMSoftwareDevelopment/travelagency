@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<meta charset="utf-8" />
+
+	<title wicket:id="title">Invoice-0000000000-Customerlastname0</title>
+
+	<link rel="stylesheet" type="text/css" href="css/reset-fonts-grids-min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/base-min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/printstyle.css"/>
+</head>
+<body>
+<div wicket:id="preview">
+<wicket:panel>
+<div class="notPrinted marginTop">
+	<a href="#" class="button" onClick="window.print();return false">Print Invoice</a>
+</div>
+<div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+					<br/>
+        			<div class="company">
+                    	<div class="large"></div>
+                    	<div></div>
+                    	<div>,&nbsp;,&nbsp;</div>
+                    	<div>Tel:&nbsp;</div>
+                    	<div>Fax:&nbsp;</div>
+                    	<div></div>
+        				<br/>
+        				<div>HST #:&nbsp;</div>
+                    	<div>TICO #:&nbsp;</div>
+                    </div>
+                    <br/>
+            		<label class="label">Your Agent&nbsp;&nbsp;Name Test0</label>
+                </td>
+				<!-- Customer Information -->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">I N V O I C E</span>&nbsp;
+						<span class="label-value verylarge">0000000000&nbsp;</span>
+					</label>
+					<label class="label verylarge">
+						<span class="label-value">Sep 10, 2011</span>
+					</label>
+					<div class="clearFloat">
+    					<label class="label-value large">Mr Customerfirstname0 Customerlastname0</label>
+                		<label class="label-value">
+    						Customeraddress0&nbsp;
+    						Customercity0&nbsp;
+    						Customerprovince0&nbsp;
+    						CUSTOMERPOSTALCODE0
+    					</label>
+                		<label class="label-value">Customeremail0@email.com</label>
+                		<label class="label-value">(111) 111-1111</label>
+                		<label class="label-value"></label>
+					</div>
+            		<label class="label large">
+                        <span class="label-value">Thanks for letting us serve you!</span>
+            		</label>
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- Invoice Destinations -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Departure Place</th>
+    			<th></th>
+    			<th>Arrival Place</th>
+    			<th></th>
+    		</tr>
+			<tr>
+    			<td>Departurecity-2</td>
+    			<td>Sep 30, 2011</td>
+    			<td>Arrivalcity-2</td>
+    			<td></td>
+    		</tr>
+		</table>
+    </div>
+<!-- Invoice Travelers -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Travellers Name</th>
+    			<th>Travel Document Type</th>
+    			<th>Travel Document Number</th>
+				<th>Date Of Birth</th>
+    		</tr>
+			<tr>
+    			<td>Mr Customerfirstname-1 Customerlastname-1</td>
+    			<td>Customertraveldocumenttype-1</td>
+    			<td>CUSTOMERTRAVELDOCUMENTNUMBER-1</td>
+				<td></td>
+    		</tr>
+		</table>
+    </div>
+<!-- Invoice Items -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+			<tr>
+				<th>Description</th>
+				<th class="numberAlign">Price</th>
+				<th class="numberAlign">Tax</th>
+				<th class="numberAlign">Qty</th>
+				<th class="numberAlign">Total</th>
+				<th>Cancel Before<br/>Departure</th>
+				<th>Change Before<br/>Departure</th>
+				<th>Change After<br/>Departure</th>
+           		<th>Booking #</th>
+           		<th>Booking Date</th>
+			</tr>
+			<tr>
+				<td colspan="10">Item-3</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="numberAlign">$300.00</td>
+				<td class="numberAlign">$150.00</td>
+				<td class="numberAlign">-3</td>
+				<td class="numberAlign">-$1,350.00</td>
+				<td></td>
+				<td></td>
+				<td></td>
+           		<td>BOOKINGNUMBER-3</td>
+           		<td>Sep 15, 2011</td>
+    		</tr>
+		</table>
+    </div>
+<!-- Invoice Notes -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+			<tr>
+				<td>this is a long note-5</td>
+    		</tr>
+		</table>
+    </div>
+<!-- Invoice Payments -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+			<tr>
+				<th>Payment Date</th>
+				<th class="numberAlign">Payment Amount</th>
+				<th>Payment Type</th>
+			</tr>
+			<tr>
+				<td>Sep 20, 2011</td>
+				<td class="numberAlign">$400.00</td>
+           		<td>CreditCard</td>
+    		</tr>
+		</table>
+    </div>
+<!-- Invoice Notes -->
+    <div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Notes -->
+        		<td valigh="top" width="60%">
+            		<div class="notes">
+                		<p>This contract permits price increases.  No price increases are permitted after the customer has paid in full.  If the price increase is more that 7%, except increases resulting from an increase in retail sales tax or federal goods and services tax, the customer has the right to cancel the contract and obtain a full refund.</p>
+                		<p>Living standards and practices at the destination and standards and conditions there with respect to the provision of utilities, services and accommodation may differ from those found in Canada.</p>
+                		<p style="margin:0;">Documentation Requirements: Please, check documentation requirements for the country (countries) that you are traveling to.  If unsure, please consult your travel agent or appropriate consulate.</p>
+                    </div>
+				</td>
+				<!-- Invoice Information -->
+        		<td valigh="top" width="40%">
+					<label class="label larger">Sub-Total Amount&nbsp;<span class="label-value">-$900.00</span></label>
+            		<label class="label larger">Total Tax&nbsp;<span class="label-value">-$450.00</span></label>
+            		<label class="label larger">Total Amount&nbsp;<span class="label-value">-$1,350.00</span></label>
+            		<label class="label larger">Total Paid&nbsp;<span class="label-value">$400.00</span></label>
+            		<label class="label larger">Total Due&nbsp;<span class="label-value value-info">-$1,750.00</span></label>
+            		<label class="label larger">Total Due Date&nbsp;<span class="label-value">Sep 25, 2011</span></label>
+            	</td>
+			</tr>
+			<tr>
+        		<td colspan="2" style="font-weight: bold;">
+               		NOTE: Entry to another country even if the required information and travel documents are complete may be denied. Agent is not responsible for Clients' travel documents
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</wicket:panel>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="js/travelagency.js"></script>
+<script type="text/javascript">/*<![CDATA[*/$(function(){TravelAgency.buttons();});/*]]>*/</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+#set($agent = $reportsSearch.systemUser)
+#set($boldstyle = "")
+#if ($reportsSearch.showDetails)
+	#set($boldstyle = "font-weight: bold;")
+#end
+<div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+        			<div class="company">
+						<img class="companyLogo" wicket:id="logoImage" />
+						<br/>
+                    	<div class="large">$stringUtils.format($company.name)</div>
+                    </div>
+                </td>
+				<!-- Title-->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">P A Y M E N T&nbsp;&nbsp;&nbsp;&nbsp;R E P O R T</span>&nbsp;
+					</label>
+					#if ($agent)
+                		<label class="label large">
+                			Agent:&nbsp;&nbsp;$stringUtils.format($agent.name)
+                		</label>
+					#end
+					<label class="label large">
+						Period:&nbsp;&nbsp;
+						$dateUtils.formatDate($reportsSearch.dateFrom)
+						&nbsp;-&nbsp;
+						$dateUtils.formatDate($reportsSearch.dateTo)
+					</label>
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- product Distribution -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+				<th>Payment Type</th>
+    			<th class="numberAlign">Count</th>
+        		<th class="numberAlign">Amount</th>
+    			<th class="numberAlign">Reconciled</th>
+    			#if ($reportsSearch.showDetails)
+    				<th>Payment Date</th>
+    				<th>Invoice Number</th>
+    				<th>Invoice Date</th>
+    				<th>Customer Name</th>
+				#end
+    		</tr>
+    		#foreach($distribution in $paymentDistribution.distributions)
+				<tr	style="$boldstyle">
+      				<td>$distribution.paymentType</td>
+               		<td class="numberAlign">$distribution.count</td>
+               		<td class="numberAlign">$distribution.amountAsString</td>
+               		<td class="numberAlign">$distribution.reconciledAmountAsString</td>
+        			#if ($reportsSearch.showDetails)
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				#end
+				</tr>
+    			#if ($reportsSearch.showDetails)
+        			#foreach($payment in $distribution.invoicePayments)
+    					#set($invoice = $payment.invoice)
+            			<tr>
+              				<td></td>
+                       		<td></td>
+                       		<td class="numberAlign">$payment.amountAsString</td>
+        					<td class="numberAlign">
+        						#if ($payment.reconciled)
+									<img src="images/checked.png"/>
+        						#else
+									<img src="images/blank.png"/>
+        						#end
+        					</td>
+                			<td>$dateUtils.formatDate($payment.date)</td>
+                			<td>$stringUtils.format($invoice.invoiceNumber)</td>
+                			<td>$dateUtils.formatDate($invoice.date)</td>
+                			<td>$stringUtils.format($invoice.customer.name)</td>
+                		</tr>
+					#end
+					<tr style="height: 0.5em;">
+					</tr>
+    			#end
+    		#end
+    	</table>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+	<td class="control">
+		<a href="#" class="controlRowDetails" wicket:id="moveUp"><img wicket:id="label"/></a><br/>
+		<a href="#" class="controlRowDetails" wicket:id="moveDown"><img wicket:id="label"/></a>
+	</td>
+	<td class="control">
+		<span wicket:id="editButton"></span>
+	</td>
+	<td class="control">
+		<span wicket:id="deleteButton"></span>
+	</td>
+	<td>
+		<span wicket:id="description"></span><br/>
+		<span wicket:id="supplier"></span><br/>
+		<table class="dataview-sub">
+			<tr>
+				<th><wicket:message key="itemCancelBeforeDeparture"/></th>
+				<th><wicket:message key="itemChangeBeforeDeparture"/></th>
+				<th><wicket:message key="itemChangeAfterDeparture"/></th>
+			</tr>
+			<tr>
+				<td>
+					<span wicket:id="cancelBeforeDeparture"></span><br/>
+				</td>
+				<td>
+					<span wicket:id="changeBeforeDeparture"></span><br/>
+				</td>
+				<td>
+					<span wicket:id="changeAfterDeparture"></span><br/>
+				</td>
+			</tr>
+		</table>
+	</td>
+	<td class="numberAlign">
+		<span wicket:id="priceAsString"></span><br/>
+		<span wicket:id="commissionAsString"></span>
+	</td>
+	<td class="numberAlign">
+		<span wicket:id="taxAsString"></span><br/>
+		<span wicket:id="taxOnCommissionAsString"></span>
+	</td>
+	<td class="numberAlign">
+		<span wicket:id="qty"></span><br/>
+	</td>
+	<td class="numberAlign">
+		<span class="label-value" wicket:id="salesAmounts.saleAsString"></span>
+		<span class="label-value" wicket:id="salesAmounts.commissionAsString"></span>
+		<span wicket:id="commissionStatus"></span>
+	</td>
+	<td>
+		<span wicket:id="bookingNumber"></span><br/>
+		<span wicket:id="bookingDate"></span>
+	</td>
+</wicket:panel>
+</body>
+</html>

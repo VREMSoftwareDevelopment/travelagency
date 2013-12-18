@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="test_i1_1">
+		<sql>
+			INSERT INTO invoice (
+				id,
+				date,
+				customer_id,
+				system_user_id,
+				bill_company,
+				total_due_date,
+				total_due,
+				status
+			)
+			VALUES (
+				1000000001,
+				'2011-06-01',
+				(SELECT id FROM customer WHERE last_name='Green'),
+				(SELECT id FROM system_user WHERE name='Agent'),
+				false,
+				'2011-06-10',
+				1920.00,
+				'Active'
+			)
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_2">
+		<sql>
+			INSERT INTO invoice_destination (invoice_id, departure_place, departure_date, arrival_place, arrival_date)
+			VALUES (1000000001, 'Toronto', '2011-06-20', 'Rome', '2011-06-21');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_3">
+		<sql>
+			INSERT INTO invoice_destination (invoice_id, departure_place, departure_date, arrival_place, arrival_date)
+			VALUES (1000000001, 'Rome', '2011-06-25', 'Toronto', '2011-06-25');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_4">
+		<sql>
+			INSERT INTO invoice_traveler (invoice_id, salutation, first_name, last_name, document_type, document_number, date_of_birth)
+			VALUES (1000000001, 'Mr', 'George', 'Green', 'Canadian Passport', '12134K45346H', '1969-05-10');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_5">
+		<sql>
+			INSERT INTO invoice_traveler (invoice_id, salutation, first_name, last_name, document_type, document_number, date_of_birth)
+			VALUES (1000000001, 'Mrs', 'Linda', 'Green', 'Canadian Passport', '1HGFTK45346H', '1975-12-23');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_6">
+		<sql>
+			INSERT INTO invoice_payment (invoice_id, amount, date, payment_type, reconciled)
+			VALUES (1000000001, 200.00, '2011-06-01', 'Cheque', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_7">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000001,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Medical                            DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_8">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000001,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Cancellation/Interruption          DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_9">
+		<sql>
+			INSERT INTO invoice_item (invoice_id, index, description, commission, price, tax, qty, commission_status, supplier)
+				VALUES (1000000001, 0, 'Flight', 30, 330, 100, 2, 'Verified', 'Air Canada');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i1_10">
+		<sql>
+			INSERT INTO invoice_item (invoice_id, index, description, commission, price, tax,	qty, commission_status, supplier)
+				VALUES (1000000001, 1, 'Tour', 30, 530, 100, 2, 'None', 'Rome Tour');
+		</sql>
+	</changeSet>
+
+	<changeSet author="VK" id="test_i2_1">
+		<sql>
+			INSERT INTO invoice (
+				id,
+				date,
+				customer_id,
+				system_user_id,
+				bill_company,
+				total_due_date,
+				total_due,
+				status
+			)
+			VALUES (
+				1000000002,
+				'2011-05-01',
+				(SELECT id FROM customer WHERE last_name='Brown'),
+				(SELECT id FROM system_user WHERE name='Agent'),
+				false,
+				'2011-05-15',
+				0.00,
+				'Active'
+			)
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_2">
+		<sql>
+			INSERT INTO invoice_destination (invoice_id, departure_place, departure_date, arrival_place, arrival_date)
+			VALUES (1000000002, 'Toronto', '2011-05-20', 'New York', '2011-05-20');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_3">
+		<sql>
+			INSERT INTO invoice_traveler (invoice_id, salutation, first_name, last_name, document_type, document_number, date_of_birth)
+			VALUES (1000000002, 'Mr', 'Paul', 'Brown', 'American Passport', 'GHF32423546H', '1972-05-22');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_4">
+		<sql>
+			INSERT INTO invoice_payment (invoice_id, amount, date, payment_type, reconciled)
+			VALUES (1000000002, 100.00, '2011-05-01', 'CreditCard', TRUE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_5">
+		<sql>
+			INSERT INTO invoice_payment (invoice_id, amount, date, payment_type, reconciled)
+			VALUES (1000000002, 170.00, '2011-06-01', 'Cash', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_6">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000002,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Medical                            DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_7">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000002,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Cancellation/Interruption          DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i2_8">
+		<sql>
+			INSERT INTO invoice_item (invoice_id, index, description, commission, price, tax, qty, commission_status, supplier)
+				VALUES (1000000002, 0, 'Flight', 20, 220, 50, 1, 'Received', 'Air Canada');
+		</sql>
+	</changeSet>
+
+	<changeSet author="VK" id="test_i3_1">
+		<sql>
+			INSERT INTO invoice (
+				id,
+				date,
+				customer_id,
+				system_user_id,
+				bill_company,
+				total_due_date,
+				total_due,
+				status
+			)
+			VALUES (
+				1000000003,
+				'2011-07-01',
+				(SELECT id FROM customer WHERE last_name='Brown'),
+				(SELECT id FROM system_user WHERE name='Agent'),
+				false,
+				'2011-07-15',
+				220.00,
+				'Active'
+			)
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i3_2">
+		<sql>
+			INSERT INTO invoice_destination (invoice_id, departure_place, departure_date, arrival_place, arrival_date)
+			VALUES (1000000003, 'Toronto', '2011-07-20', 'New York', '2011-07-20');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i3_3">
+		<sql>
+			INSERT INTO invoice_traveler (invoice_id, salutation, first_name, last_name, document_type, document_number, date_of_birth)
+			VALUES (1000000003, 'Mr', 'Paul', 'Brown', 'American Passport', '12342GHHFFF34325HKH', '1972-05-22');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i3_4">
+		<sql>
+			INSERT INTO invoice_payment (invoice_id, amount, date, payment_type, reconciled)
+			VALUES (1000000003, 110.00, '2011-07-01', 'CreditCard', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i3_5">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000003,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Medical                            DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i3_6">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000003,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Cancellation/Interruption          DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i3_7">
+		<sql>
+			INSERT INTO invoice_item (invoice_id, index, description, commission, price, tax, qty, commission_status, supplier)
+				VALUES (1000000003, 0, 'Flight', 30, 280, 50, 1, 'None', 'American Airlines');
+		</sql>
+	</changeSet>
+
+	<changeSet author="VK" id="test_i4_1">
+		<sql>
+			INSERT INTO invoice (
+				id,
+				date,
+				customer_id,
+				system_user_id,
+				bill_company,
+				total_due_date,
+				total_due,
+				status
+			)
+			VALUES (
+				1000000004,
+				'2011-07-01',
+				(SELECT id FROM customer WHERE last_name='Green'),
+				(SELECT id FROM system_user WHERE name='Agent'),
+				false,
+				'2011-07-10',
+				2000.00,
+				'Active'
+			)
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_2">
+		<sql>
+			INSERT INTO invoice_destination (invoice_id, departure_place, departure_date, arrival_place, arrival_date)
+			VALUES (1000000004, 'Toronto', '2011-07-20', 'London', '2011-07-21');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_3">
+		<sql>
+			INSERT INTO invoice_destination (invoice_id, departure_place, departure_date, arrival_place, arrival_date)
+			VALUES (1000000004, 'London', '2011-07-25', 'Toronto', '2011-07-25');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_4">
+		<sql>
+			INSERT INTO invoice_traveler (invoice_id, salutation, first_name, last_name, document_type, document_number, date_of_birth)
+			VALUES (1000000004, 'Mr', 'George', 'Green', 'Canadian Passport', '12134K45346H', '1969-05-10');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_5">
+		<sql>
+			INSERT INTO invoice_payment (invoice_id, amount, date, payment_type, reconciled)
+			VALUES (1000000004, 1000.00, '2011-06-01', 'Cheque', TRUE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_6">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000004,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Medical                            DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_7">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000004,
+				'&lt;pre&gt;&lt;span style="font-size:larger; font-weight:bold;"&gt;Insurance - Cancellation/Interruption          DECLINED&lt;/span&gt;&lt;/pre&gt;',
+				'2011-07-01', FALSE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_8">
+		<sql>
+			INSERT INTO invoice_note (invoice_id, text, date, private_note)
+			VALUES (1000000004,
+				'This is very private note; Do not show this to the customer', '2011-07-01', TRUE);
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_i4_9">
+		<sql>
+			INSERT INTO invoice_item (invoice_id, index, description, commission, price, tax, qty, commission_status, supplier)
+				VALUES (1000000004, 0, 'Flight', 200, 2000, 1000, 1, 'Received', 'Air Canada');
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

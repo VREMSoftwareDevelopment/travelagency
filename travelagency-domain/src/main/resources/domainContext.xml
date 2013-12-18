@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<context:component-scan base-package="ca.travelagency" />
+
+	<context:property-placeholder location="classpath:application.properties" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${dataSource.driver}" />
+		<property name="url" value="${dataSource.url}" />
+		<property name="username" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+
+		<!-- REQUIRED -->
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="8" />
+		<property name="maxWait" value="-1" />
+	</bean>
+
+	<bean id="jpaVendorAdapter" class="${jpaVendorAdapter.jpaVendorAdapter}">
+		<property name="databasePlatform" value="${jpaVendorAdapter.databasePlatform}" />
+		<property name="showSql" value="${jpaVendorAdapter.showSql}" />
+	</bean>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="travelagency" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				<prop key="hibernate.show_sql">${jpaProperties.show_sql}</prop>
+				<prop key="hibernate.format_sql">${jpaProperties.format_sql}</prop>
+				<prop key="use_sql_comments">${jpaProperties.use_sql_comments}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+		<property name="changeLog" value="classpath:db/db-changelog.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>

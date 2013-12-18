@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="item_description_1">
+		<sql>
+			INSERT INTO item_description (name) VALUES ('Air Transporation');
+			INSERT INTO item_description (name) VALUES ('Hotel');
+			INSERT INTO item_description (name) VALUES ('Insurance');
+			INSERT INTO item_description (name) VALUES ('Insurance-Canc/Inter');
+			INSERT INTO item_description (name) VALUES ('Insurance-Medical');
+			INSERT INTO item_description (name) VALUES ('Other');
+			INSERT INTO item_description (name) VALUES ('Tour');
+			INSERT INTO item_description (name) VALUES ('Vacation');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="item_description_2">
+		<sql>
+			INSERT INTO item_description (name) VALUES ('Package');
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="item_description_3">
+		<update tableName="item_description">
+			<column name="name" value="Air Transportation"/>
+			<where>
+				name = 'Air Transporation'
+			</where>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="item_description_4">
+		<update tableName="item_description">
+			<column name="name" value="Insurance - Cancellation/Interruption"/>
+			<where>
+				name = 'Insurance-Canc/Inter'
+			</where>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="item_description_5">
+		<update tableName="item_description">
+			<column name="name" value="Insurance - Medical"/>
+			<where>
+				name = 'Insurance-Medical'
+			</where>
+		</update>
+	</changeSet>
+</databaseChangeLog>

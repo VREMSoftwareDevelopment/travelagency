@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:panel>
+	<div class="leftFloat">
+		<div class="entryForm leftFloat marginRight">
+			<label class="label">
+				<wicket:message key="invoice.subTotalAmount"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.priceAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.totalTax"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.taxAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.totalAmount"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.saleAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.totalPaid"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.paidAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.totalDue"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.dueAsString"></span></span>
+			</label>
+		</div>
+	</div>
+	<div class="leftFloat">
+		<div class="entryForm leftFloat">
+			<label class="label">
+				<wicket:message key="invoice.totalCost"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.costAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.hstOnCommission"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.taxOnCommissionAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.totalCommission"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.commissionAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.commissionReceived"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.commissionReceivedAsString"></span></span>
+			</label>
+			<label class="label">
+				<wicket:message key="invoice.commissionVerified"/>&nbsp;<span class="label-value"><span wicket:id="salesAmounts.commissionVerifiedAsString"></span></span>
+			</label>
+		</div>
+	</div>
+</wicket:panel>
+</html>

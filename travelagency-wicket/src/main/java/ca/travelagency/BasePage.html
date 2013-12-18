@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<meta charset="utf-8" />
+
+	<title wicket:id="title"></title>
+
+	<link rel="stylesheet" type="text/css" href="css/reset-fonts-grids-min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/base-min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+	<header>
+		<section wicket:id="headerPanel">[header panel]</section>
+	</header>
+	<section class="body">
+		<section class="main">
+			<nav wicket:id="navigationMenu">[navigation panel]</nav>
+			<section class="pageTitle" wicket:id="pageTitle"></section>
+			<section wicket:id="pageFeedback"></section>
+			<wicket:child></wicket:child>
+			<footer>
+				<div wicket:id="footerPanel">[footer panel]</div>
+			</footer>
+		</section>
+	</section>
+	<div wicket:id="debug"></div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.custom.js"></script>
+	<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="js/travelagency.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>

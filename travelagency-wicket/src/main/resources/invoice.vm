@@ -1,0 +1,214 @@
+<div class="notPrinted marginTop">
+	<a href="#" class="button" onClick="window.print();return false">Print Invoice</a>
+</div>
+<div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+					<br/>
+        			<div class="company">
+						<img class="companyLogo" wicket:id="logoImage" />
+                    	<div class="large">$stringUtils.format($company.name)</div>
+                    	<div>$stringUtils.format($company.address)</div>
+                    	<div>$stringUtils.format($company.city),&nbsp;$stringUtils.format($company.province),&nbsp;$stringUtils.format($company.postalCode)</div>
+                    	<div>Tel:&nbsp;$stringUtils.format($company.phoneNumber)</div>
+                    	<div>Fax:&nbsp;$stringUtils.format($company.faxNumber)</div>
+                    	<div>$stringUtils.format($company.email)</div>
+        				<br/>
+        				<div>HST #:&nbsp;$stringUtils.format($company.taxNumber)</div>
+                    	<div>TICO #:&nbsp;$stringUtils.format($company.ticoNumber)</div>
+                    </div>
+                    <br/>
+            		<label class="label">
+            			Your Agent&nbsp;&nbsp;$stringUtils.format($invoice.systemUser.name)
+            		</label>
+                </td>
+				<!-- Customer Information -->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">I N V O I C E</span>&nbsp;
+						<span class="label-value verylarge">$stringUtils.format($invoice.invoiceNumber)&nbsp;</span>
+					</label>
+					<label class="label verylarge">
+						<span class="label-value">$dateUtils.formatDateCustom($invoice.date)</span>
+					</label>
+					<div class="clearFloat">
+    					<label class="label-value large">
+            			#if ($invoice.isBillCompany())
+    						$stringUtils.format($invoice.customer.companyName)
+            			#else
+    						$stringUtils.format($invoice.customer.name)
+    					#end
+    					</label>
+                		<label class="label-value">
+    						$stringUtils.format($invoice.customer.address)&nbsp;
+    						$stringUtils.format($invoice.customer.city)&nbsp;
+    						$stringUtils.format($invoice.customer.province)&nbsp;
+    						$stringUtils.format($invoice.customer.postalCode)
+    					</label>
+                		<label class="label-value">$stringUtils.format($invoice.customer.email)</label>
+                		<label class="label-value">$stringUtils.format($invoice.customer.primaryPhone)</label>
+                		<label class="label-value">$stringUtils.format($invoice.customer.secondaryPhone)</label>
+					</div>
+            		<label class="label large">
+                        <span class="label-value">Thanks for letting us serve you!</span>
+            		</label>
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- Invoice Destinations -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Departure Place</th>
+    			<th></th>
+    			<th>Arrival Place</th>
+    			<th></th>
+    		</tr>
+    		#foreach ($destination in $invoice.invoiceDestinations)
+    		<tr>
+    			<td>$stringUtils.format($destination.departurePlace)</td>
+    			<td>$dateUtils.formatDateCustom($destination.departureDate)</td>
+    			<td>$stringUtils.format($destination.arrivalPlace)</td>
+    			<td>$dateUtils.formatDateCustom($destination.arrivalDate)</td>
+    		</tr>
+    		#end
+    	</table>
+    </div>
+<!-- Invoice Travelers -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+    			<th>Travellers Name</th>
+    			<th>Travel Document Type</th>
+    			<th>Travel Document Number</th>
+				<th>Date Of Birth</th>
+    		</tr>
+			#foreach ($traveler in $invoice.invoiceTravelers)
+    		<tr>
+    			<td>$stringUtils.format($traveler.name)</td>
+    			<td>$stringUtils.format($traveler.documentType)</td>
+    			<td>$stringUtils.format($traveler.documentNumber)</td>
+				<td>$dateUtils.formatDateCustom($traveler.dateOfBirth)</td>
+    		</tr>
+			#end
+    	</table>
+    </div>
+<!-- Invoice Items -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+			<tr>
+				<th>Description</th>
+				<th class="numberAlign">Price</th>
+				<th class="numberAlign">Tax</th>
+				<th class="numberAlign">Qty</th>
+				<th class="numberAlign">Total</th>
+				<th>Cancel Before<br/>Departure</th>
+				<th>Change Before<br/>Departure</th>
+				<th>Change After<br/>Departure</th>
+           		<th>Booking #</th>
+           		<th>Booking Date</th>
+			</tr>
+			#foreach ($item in $invoice.invoiceItems)
+			<tr>
+				<td colspan="10">$stringUtils.format($item.description)</td>
+    		</tr>
+			<tr>
+				<td></td>
+				<td class="numberAlign">$item.priceAsString</td>
+				<td class="numberAlign">$item.taxAsString</td>
+				<td class="numberAlign">$item.qty</td>
+				<td class="numberAlign">$item.salesAmounts.saleAsString</td>
+				<td>$stringUtils.format($item.cancelBeforeDeparture)</td>
+				<td>$stringUtils.format($item.changeBeforeDeparture)</td>
+				<td>$stringUtils.format($item.changeAfterDeparture)</td>
+           		<td>$stringUtils.format($item.bookingNumber)</td>
+           		<td>$dateUtils.formatDateCustom($item.bookingDate)</td>
+    		</tr>
+			#end
+    	</table>
+    </div>
+<!-- Invoice Notes -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+			#foreach ($note in $invoice.publicInvoiceNotes)
+			<tr>
+				<td>$stringUtils.format($note.text)</td>
+    		</tr>
+			#end
+    	</table>
+    </div>
+<!-- Invoice Payments -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+			<tr>
+				<th>Payment Date</th>
+				<th class="numberAlign">Payment Amount</th>
+				<th>Payment Type</th>
+			</tr>
+			#foreach ($payment in $invoice.invoicePayments)
+			<tr>
+				<td>$dateUtils.formatDateCustom($payment.date)</td>
+				<td class="numberAlign">$payment.amountAsString</td>
+           		<td>$payment.paymentType</td>
+    		</tr>
+			#end
+    	</table>
+    </div>
+<!-- Invoice Notes -->
+    <div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Notes -->
+        		<td valigh="top" width="60%">
+            		<div class="notes">
+                		<p>This contract permits price increases.  No price increases are permitted after the customer has paid in full.  If the price increase is more that 7%, except increases resulting from an increase in retail sales tax or federal goods and services tax, the customer has the right to cancel the contract and obtain a full refund.</p>
+                		<p>Living standards and practices at the destination and standards and conditions there with respect to the provision of utilities, services and accommodation may differ from those found in Canada.</p>
+                		<p style="margin:0;">Documentation Requirements: Please, check documentation requirements for the country (countries) that you are traveling to.  If unsure, please consult your travel agent or appropriate consulate.</p>
+                    </div>
+				</td>
+				<!-- Invoice Information -->
+        		<td valigh="top" width="40%">
+					#set ($salesAmounts = $invoice.salesAmounts)
+            		<label class="label larger">
+						Sub-Total Amount&nbsp;
+						<span class="label-value">$salesAmounts.priceAsString</span>
+					</label>
+            		<label class="label larger">
+						Total Tax&nbsp;
+						<span class="label-value">$salesAmounts.taxAsString</span>
+					</label>
+            		<label class="label larger">
+						Total Amount&nbsp;
+						<span class="label-value">$salesAmounts.saleAsString</span>
+					</label>
+            		<label class="label larger">
+						Total Paid&nbsp;
+						<span class="label-value">$salesAmounts.paidAsString</span>
+					</label>
+            		<label class="label larger">
+						Total Due&nbsp;
+						#if ($salesAmounts.dueAmount)
+						<span class="label-value value-error">$salesAmounts.dueAsString</span>
+						#else
+						<span class="label-value value-info">$salesAmounts.dueAsString</span>
+						#end
+					</label>
+            		<label class="label larger">
+						Total Due Date&nbsp;
+						<span class="label-value">$dateUtils.formatDateCustom($invoice.totalDueDate)</span>
+					</label>
+            	</td>
+			</tr>
+			<tr>
+        		<td colspan="2" style="font-weight: bold;">
+               		NOTE: Entry to another country even if the required information and travel documents are complete may be denied. Agent is not responsible for Clients' travel documents
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

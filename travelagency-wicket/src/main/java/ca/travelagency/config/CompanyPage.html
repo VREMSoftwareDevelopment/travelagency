@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<wicket:extend>
+	<form class="entryForm" wicket:id="companyForm">
+		<div wicket:id="feedback">[feedback]</div>
+		<div class="leftFloat">
+			<div class="leftFloat marginRight">
+				<input type="text" size="30" wicket:id="name" />
+				<input type="text" size="40" wicket:id="address" />
+				<input type="text" size="30" wicket:id="city" />
+				<input type="text" wicket:id="province" />
+				<input type="text" wicket:id="postalCode" />
+				<input type="text" wicket:id="country" />
+			</div>
+			<div class="leftFloat">
+				<input type="text" wicket:id="phoneNumber" class="phone"/>
+				<input type="text" wicket:id="faxNumber" class="phone"/>
+				<input type="text" size="30" wicket:id="email" />
+				<input type="text" wicket:id="taxNumber" />
+				<input type="text" wicket:id="ticoNumber" />
+			</div>
+		</div>
+		<div class="clearFloat paddingTop">
+			<span wicket:id="saveButton"></span>
+			<span wicket:id="resetButton"></span>
+		</div>
+	</form>
+	<form class="entryForm marginTop" wicket:id="uploadForm">
+		<div wicket:id="feedback">[feedback]</div>
+		<div>
+			<label class="label"><wicket:message key="uploadField"/></label>
+			<input type="file" size="60" wicket:id="uploadField"/>
+		</div>
+		<div class="clearFloat paddingTop">
+			<input type="submit" class="button" wicket:message="value:uploadButton"/>
+		</div>
+	</form>
+</wicket:extend>
+</html>

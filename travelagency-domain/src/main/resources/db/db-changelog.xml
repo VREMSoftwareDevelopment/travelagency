@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="1">
+		<comment>Create system user table</comment>
+		<createTable tableName="system_user">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="created" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" unique="true"/>
+			</column>
+			<column name="password" type="varchar(255)"/>
+			<column name="first_name" type="varchar(255)" />
+			<column name="last_name" type="varchar(255)" />
+			<column name="email" type="varchar(255)"/>
+			<column name="primary_phone" type="varchar(255)"/>
+			<column name="secondary_phone" type="varchar(255)"/>
+			<column name="active" type="boolean">
+				<constraints nullable="false"/>
+			</column>
+			<column name="commission_rate" type="decimal(5,2)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="2">
+		<comment>Create system users role table</comment>
+		<createTable tableName="system_user_role">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="system_user_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="role" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="3">
+		<comment>link system_user_role and system_user table</comment>
+		<addForeignKeyConstraint constraintName="system_user_role_system_user_fk"
+			baseTableName="system_user_role" baseColumnNames="system_user_id"
+			referencedTableName="system_user" referencedColumnNames="id"/>
+	</changeSet>
+	<include file="db/systemUsers.xml"/>
+	<changeSet author="VK" id="4">
+		<comment>Create customer table</comment>
+		<createTable tableName="customer">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="created" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="salutation" type="varchar(255)"/>
+			<column name="first_name" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="last_name" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="company_name" type="varchar(255)"/>
+			<column name="address" type="varchar(255)"/>
+			<column name="city" type="varchar(255)"/>
+			<column name="province" type="varchar(255)"/>
+			<column name="postal_code" type="varchar(255)"/>
+			<column name="country" type="varchar(255)"/>
+			<column name="email" type="varchar(255)"/>
+			<column name="primary_phone" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="secondary_phone" type="varchar(255)"/>
+			<column name="notes" type="varchar(4096)"/>
+			<column name="system_user_id" type="bigint"/>
+			<column name="status" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_of_birth" type="date"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="5">
+		<comment>link customer and system user table</comment>
+		<addForeignKeyConstraint constraintName="customer_system_user_fk"
+			baseTableName="customer" baseColumnNames="system_user_id"
+			referencedTableName="system_user" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="6">
+		<comment>Create company configuration table</comment>
+		<createTable tableName="company">
+			<column name="id" type="bigint">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="address" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="city" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="province" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="postal_code" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="country" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="phone_number" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="fax_number" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="tax_number" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="tico_number" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="7">
+		<comment>add information to company table</comment>
+		<insert tableName="company">
+			<column name="id" valueNumeric="1" />
+			<column name="name" value="My Travel Company" />
+			<column name="address" value="Address"/>
+			<column name="city" value="City"/>
+			<column name="province" value="Province"/>
+			<column name="postal_code" value="Postal Code"/>
+			<column name="country" value="Country"/>
+			<column name="email" value="travel.company@email.com" />
+			<column name="phone_number" value="1111111111" />
+			<column name="fax_number" value="2222222222" />
+			<column name="tax_number" value="TAX-1234567890"/>
+			<column name="tico_number" value="TICO-1234567890"/>
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="8">
+		<comment>Create province table</comment>
+		<createTable tableName="province">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+  				<constraints unique="true" uniqueConstraintName="province_name_uk"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<include file="db/provinces.xml"/>
+	<changeSet author="VK" id="9">
+		<comment>Create city table</comment>
+		<createTable tableName="city">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+  				<constraints unique="true" uniqueConstraintName="city_name_uk"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<include file="db/cities.xml"/>
+	<changeSet author="VK" id="10">
+		<comment>Create item description table</comment>
+		<createTable tableName="item_description">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+  				<constraints unique="true" uniqueConstraintName="item_description_name_uk"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<include file="db/itemDescriptions.xml"/>
+	<changeSet author="VK" id="11">
+		<comment>Create supplier table</comment>
+		<createTable tableName="supplier">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+  				<constraints unique="true" uniqueConstraintName="supplier_name_uk"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<include file="db/suppliers.xml"/>
+	<changeSet author="VK" id="12">
+		<comment>Create invoice table</comment>
+		<createTable tableName="invoice">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="date" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="customer_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="bill_company" type="boolean">
+				<constraints nullable="false"/>
+			</column>
+			<column name="system_user_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="booking_number" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="booking_date" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="total_due_date" type="datetime"/>
+			<column name="status" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="13">
+		<comment>link invoice and system user table</comment>
+		<addForeignKeyConstraint constraintName="invoice_system_user_fk"
+			baseTableName="invoice" baseColumnNames="system_user_id"
+			referencedTableName="system_user" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="14">
+		<comment>link invoice and customer table</comment>
+		<addForeignKeyConstraint constraintName="invoice_customer_fk"
+			baseTableName="invoice" baseColumnNames="customer_id"
+			referencedTableName="customer" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="15">
+		<comment>Create invoice destination table</comment>
+		<createTable tableName="invoice_destination">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="invoice_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="departure_place" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="departure_date" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="arrival_place" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="arrival_date" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="16">
+		<comment>link invoice_destination and invoice table</comment>
+		<addForeignKeyConstraint constraintName="invoice_destination_invoice_fk"
+			baseTableName="invoice_destination" baseColumnNames="invoice_id"
+			referencedTableName="invoice" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="17">
+		<comment>Create invoice traveler table</comment>
+		<createTable tableName="invoice_traveler">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="invoice_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="document_type" type="varchar(255)"/>
+			<column name="document_number" type="varchar(255)"/>
+			<column name="date_of_birth" type="date"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="18">
+		<comment>link invoice traveler and invoice table</comment>
+		<addForeignKeyConstraint constraintName="invoice_traveler_invoice_fk"
+			baseTableName="invoice_traveler" baseColumnNames="invoice_id"
+			referencedTableName="invoice" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="19">
+		<comment>Create invoice payment table</comment>
+		<createTable tableName="invoice_payment">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="invoice_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="amount" type="decimal">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="20">
+		<comment>link invoice payment and invoice table</comment>
+		<addForeignKeyConstraint constraintName="invoice_payment_invoice_fk"
+			baseTableName="invoice_payment" baseColumnNames="invoice_id"
+			referencedTableName="invoice" referencedColumnNames="id"/>
+	</changeSet>
+
+	<changeSet author="VK" id="21">
+		<comment>Create invoice note table</comment>
+		<createTable tableName="invoice_note">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="invoice_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="text" type="varchar(4096)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="22">
+		<comment>link invoice note and invoice table</comment>
+		<addForeignKeyConstraint constraintName="invoice_note_invoice_fk"
+			baseTableName="invoice_note" baseColumnNames="invoice_id"
+			referencedTableName="invoice" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="23">
+		<comment>Create invoice item table</comment>
+		<createTable tableName="invoice_item">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="invoice_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="index" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="supplier" type="varchar(255)"/>
+			<column name="cost" type="decimal"/>
+			<column name="tax_on_commission" type="decimal"/>
+			<column name="description" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="price" type="decimal">
+				<constraints nullable="false"/>
+			</column>
+			<column name="tax" type="decimal"/>
+			<column name="qty" type="int"/>
+			<column name="cancel_before_departure" type="varchar(255)"/>
+			<column name="change_before_departure" type="varchar(255)"/>
+			<column name="change_after_departure" type="varchar(255)"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="VK" id="24">
+		<comment>link invoice item and invoice table</comment>
+		<addForeignKeyConstraint constraintName="invoice_item_invoice_fk"
+			baseTableName="invoice_item" baseColumnNames="invoice_id"
+			referencedTableName="invoice" referencedColumnNames="id"/>
+	</changeSet>
+	<changeSet author="VK" id="25">
+		<comment>Create invoice destination table</comment>
+		<dropNotNullConstraint tableName="invoice_destination" columnName="arrival_date"/>
+	</changeSet>
+	<changeSet author="VK" id="26">
+		<renameColumn tableName="invoice_traveler" oldColumnName="name" newColumnName="last_name"/>
+	</changeSet>
+	<changeSet author="VK" id="27">
+		<addColumn tableName="invoice_traveler">
+			<column name="first_name" type="varchar(255)"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="28">
+		<addColumn tableName="invoice_traveler">
+			<column name="salutation" type="varchar(255)"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="29">
+		<comment>SQL optimization</comment>
+		<addColumn tableName="invoice">
+			<column name="total_due" type="decimal"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="30">
+		<comment>drop booking number and date from invoice</comment>
+		<dropColumn tableName="invoice" columnName="booking_number"/>
+		<dropColumn tableName="invoice" columnName="booking_date"/>
+	</changeSet>
+	<changeSet author="VK" id="31">
+		<comment>add booking number and date to invoice item</comment>
+		<addColumn tableName="invoice_item">
+			<column name="booking_number" type="varchar(255)"/>
+			<column name="booking_date" type="datetime"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="32">
+		<comment>add payment type to invoice payment</comment>
+		<addColumn tableName="invoice_payment">
+			<column name="payment_type" type="varchar(255)"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="33">
+		<comment>update payment type to invoice payment</comment>
+		<update tableName="invoice_payment">
+			<column name="payment_type" value="CreditCard"></column>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="34">
+		<comment>change constraint on payment type to invoice payment</comment>
+		<addNotNullConstraint tableName="invoice_payment" columnName="payment_type"/>
+	</changeSet>
+	<changeSet author="VK" id="35">
+		<comment>add commission received flag to invoice item</comment>
+		<addColumn tableName="invoice_item">
+			<column name="commission_received" type="boolean"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="36">
+		<update tableName="invoice_item">
+			<column name="commission_received" valueBoolean="False"></column>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="37">
+		<addNotNullConstraint tableName="invoice_item" columnName="commission_received"/>
+	</changeSet>
+	<changeSet author="VK" id="38">
+		<comment>add date to invoice notes</comment>
+		<addColumn tableName="invoice_note">
+			<column name="date" type="datetime"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="39">
+		<update tableName="invoice_note">
+			<column name="date" valueDate="2011-07-01 10:00:00"></column>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="40">
+		<addNotNullConstraint tableName="invoice_note" columnName="date"/>
+	</changeSet>
+	<changeSet author="VK" id="41">
+		<comment>Create salutation table</comment>
+		<createTable tableName="salutation">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+  				<constraints unique="true" uniqueConstraintName="salutation_name_uk"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<include file="db/salutations.xml"/>
+	<changeSet author="VK" id="42">
+		<renameColumn tableName="invoice_item" oldColumnName="cost" newColumnName="commission"/>
+	</changeSet>
+	<changeSet author="VK" id="43">
+		<comment>Create parameter table</comment>
+		<createTable tableName="parameter">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="name" type="varchar(255)">
+  				<constraints unique="true" uniqueConstraintName="parameter_name_uk"/>
+			</column>
+			<column name="value" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<include file="db/parameters.xml"/>
+	<changeSet author="VK" id="44">
+		<comment>change name item description to product table</comment>
+		<renameTable newTableName="product" oldTableName="item_description"/>
+	</changeSet>
+	<changeSet author="VK" id="45">
+		<comment>change name item description to product table</comment>
+		<renameTable newTableName="product_id_seq" oldTableName="item_description_id_seq"/>
+	</changeSet>
+	<changeSet author="VK" id="46">
+		<comment>add indexes to customer table</comment>
+		<createIndex tableName="customer" indexName="first_name">
+			<column name="first_name"/>
+		</createIndex>
+	</changeSet>
+	<changeSet author="VK" id="47">
+		<comment>add indexes to customer table</comment>
+		<createIndex tableName="customer" indexName="last_name">
+			<column name="last_name"/>
+		</createIndex>
+	</changeSet>
+	<changeSet author="VK" id="48">
+		<comment>add indexes to customer table</comment>
+		<createIndex tableName="customer" indexName="company_name">
+			<column name="company_name"/>
+		</createIndex>
+	</changeSet>
+	<changeSet author="VK" id="49">
+		<comment>add travel document type and number to customer table</comment>
+		<addColumn tableName="customer">
+			<column name="travel_document_type" type="varchar(255)"/>
+			<column name="travel_document_number" type="varchar(255)"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="50">
+		<comment>create traveler view</comment>
+		<createView viewName="traveler" replaceIfExists="true">
+			SELECT DISTINCT
+				MAX(id) as id,
+				last_name,
+				first_name,
+				salutation,
+				MAX(date_of_birth) as date_of_birth,
+				MAX(document_type) as document_type,
+				MAX(document_number) as document_number
+			FROM
+				invoice_traveler
+			GROUP BY
+				last_name, first_name, salutation
+			ORDER BY
+				last_name, first_name, salutation, id
+		</createView>
+	</changeSet>
+	<changeSet author="VK" id="51">
+		<comment>add private note flag to invoice note table</comment>
+		<addColumn tableName="invoice_note">
+			<column name="private_note" type="boolean"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="52">
+		<update tableName="invoice_note">
+			<column name="private_note" valueBoolean="False"></column>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="53">
+		<addNotNullConstraint tableName="invoice_note" columnName="private_note"/>
+	</changeSet>
+	<changeSet author="VK" id="54">
+		<comment>add commission status to invoice item table</comment>
+		<addColumn tableName="invoice_item">
+			<column name="commission_status" type="varchar(255)"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="55">
+		<update tableName="invoice_item">
+			<column name="commission_status" value="None"></column>
+			<where>commission_received = FALSE</where>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="56">
+		<update tableName="invoice_item">
+			<column name="commission_status" value="Received"></column>
+			<where>commission_received = TRUE</where>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="57">
+		<addNotNullConstraint tableName="invoice_item" columnName="commission_status"/>
+	</changeSet>
+	<changeSet author="VK" id="58">
+		<dropColumn tableName="invoice_item" columnName="commission_received"/>
+	</changeSet>
+	<changeSet author="VK" id="59">
+		<addColumn tableName="invoice_payment">
+			<column name="reconciled" type="boolean"/>
+		</addColumn>
+	</changeSet>
+	<changeSet author="VK" id="60">
+		<update tableName="invoice_payment">
+			<column name="reconciled" valueBoolean="False"></column>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="61">
+		<addNotNullConstraint tableName="invoice_payment" columnName="reconciled"/>
+	</changeSet>
+	<changeSet author="VK" id="62">
+		<comment>update travel document type in customer</comment>
+		<update tableName="customer">
+			<column name="travel_document_type" value="Canadian Passport"></column>
+			<where>travel_document_type is null</where>
+		</update>
+	</changeSet>
+	<changeSet author="VK" id="63">
+		<comment>update travel document type in invoice traveler</comment>
+		<update tableName="invoice_traveler">
+			<column name="document_type" value="Canadian Passport"></column>
+			<where>document_type is null</where>
+		</update>
+	</changeSet>
+</databaseChangeLog>

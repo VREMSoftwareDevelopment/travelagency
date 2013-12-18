@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="test_c_1">
+		<insert tableName="customer">
+			<column name="salutation" value="Mr" />
+			<column name="first_name" value="George" />
+			<column name="last_name" value="Green" />
+			<column name="company_name" value="Green Development Inc" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="address" value="134 Green road"/>
+			<column name="city" value="Toronto"/>
+			<column name="province" value="Ontario"/>
+			<column name="postal_code" value="M2R 1S3"/>
+			<column name="country" value="Canada"/>
+			<column name="email" value="george.green@email.com"/>
+			<column name="primary_phone" value="4161112222"/>
+			<column name="secondary_phone" value="4163334444"/>
+			<column name="notes" value="A lot of notes line1\nA lot of notes line2\nA lot of notes line3\nA lot of notes line4\nA lot of notes line5\n" />
+			<column name="status" value="Active" />
+			<column name="date_of_birth" valueDate="1982-02-21" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_2">
+		<insert tableName="customer">
+			<column name="salutation" value="Mr" />
+			<column name="first_name" value="Paul" />
+			<column name="last_name" value="Brown" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="address" value="1111 Brown Avenue"/>
+			<column name="city" value="Toronto"/>
+			<column name="province" value="Ontario"/>
+			<column name="postal_code" value="M2K 1B3"/>
+			<column name="country" value="Canada"/>
+			<column name="email" value="paul.brown@email.com"/>
+			<column name="primary_phone" value="4162222222"/>
+			<column name="secondary_phone" value="4163333333"/>
+			<column name="status" value="Active" />
+			<column name="date_of_birth" valueDate="1972-05-22" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_3">
+		<insert tableName="customer">
+			<column name="first_name" value="Linda" />
+			<column name="last_name" value="Black" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="address" value="23 Black Street"/>
+			<column name="city" value="Toronto"/>
+			<column name="province" value="Ontario"/>
+			<column name="postal_code" value="M2S 1A3"/>
+			<column name="country" value="Canada"/>
+			<column name="email" value="linda.black@email.com"/>
+			<column name="primary_phone" value="4165552222"/>
+			<column name="secondary_phone" value="4166663333"/>
+			<column name="status" value="Active" />
+			<column name="date_of_birth" valueDate="1977-08-22" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_4">
+		<insert tableName="customer">
+			<column name="salutation" value="Ms" />
+			<column name="first_name" value="Helen" />
+			<column name="last_name" value="White" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="address" value="22 White Street"/>
+			<column name="city" value="Toronto"/>
+			<column name="province" value="Ontario"/>
+			<column name="postal_code" value="M2S 1C5"/>
+			<column name="country" value="Canada"/>
+			<column name="email" value="helen.white@email.com"/>
+			<column name="primary_phone" value="4169992222"/>
+			<column name="secondary_phone" value="4166665555"/>
+			<column name="status" value="Active" />
+			<column name="date_of_birth" valueDate="1991-12-25" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_5">
+		<insert tableName="customer">
+			<column name="first_name" value="Sushi" />
+			<column name="last_name" value="Blue" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="address" value="22 Avenue road"/>
+			<column name="city" value="Toronto"/>
+			<column name="province" value="Ontario"/>
+			<column name="postal_code" value="M2H 4C7"/>
+			<column name="country" value="Canada"/>
+			<column name="email" value="sushi.blue@email.com"/>
+			<column name="primary_phone" value="4164447777"/>
+			<column name="secondary_phone" value="4162225555"/>
+			<column name="status" value="Active" />
+			<column name="date_of_birth" valueDate="1969-05-10" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_6">
+		<insert tableName="customer">
+			<column name="first_name" value="Mike" />
+			<column name="last_name" value="Yellow" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="primary_phone" value="6666666666"/>
+			<column name="status" value="Active" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_7">
+		<insert tableName="customer">
+			<column name="first_name" value="David" />
+			<column name="last_name" value="Red" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="primary_phone" value="7777777777"/>
+			<column name="status" value="Active" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_8">
+		<comment>add sample customer to customer table</comment>
+		<insert tableName="customer">
+			<column name="salutation" value="Mr" />
+			<column name="first_name" value="AFirstName" />
+			<column name="last_name" value="ALastName" />
+			<column name="company_name" value="A Development Inc" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="address" value="A43 Sample street"/>
+			<column name="city" value="ACity"/>
+			<column name="province" value="AProvince"/>
+			<column name="postal_code" value="APostalCode"/>
+			<column name="country" value="ACountry"/>
+			<column name="email" value="Asample@email.com"/>
+			<column name="primary_phone" value="1111111111"/>
+			<column name="secondary_phone" value="2222222222"/>
+			<column name="notes" value="notes line1\nnotes line2\nnotes line3\nnotes line4\nnotes line5\nnotes line6\nnotes line7\n" />
+			<column name="status" value="Active" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_9">
+		<sql>
+			UPDATE customer
+			SET system_user_id = (SELECT id FROM system_user WHERE name='Agent')
+			WHERE last_name = 'Green';
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_c_10">
+		<sql>
+			UPDATE customer
+			SET system_user_id = (SELECT id FROM system_user WHERE name='Agent')
+			WHERE last_name = 'White';
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_c_11">
+		<sql>
+			UPDATE customer
+			SET system_user_id = (SELECT id FROM system_user WHERE name='Agent')
+			WHERE last_name = 'Blue';
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_c_12">
+		<sql>
+			UPDATE customer
+			SET system_user_id = (SELECT id FROM system_user WHERE name='Agent')
+			WHERE last_name = 'Red';
+		</sql>
+	</changeSet>
+	<changeSet author="VK" id="test_c_13">
+		<comment>add a few customers with duplicates last, first and company name</comment>
+		<insert tableName="customer">
+			<column name="first_name" value="David" />
+			<column name="last_name" value="Red" />
+			<column name="company_name" value="David Red Company" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="primary_phone" value="7777777777"/>
+			<column name="status" value="Active" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_14">
+		<comment>add a few customers with duplicates last, first and company name</comment>
+		<insert tableName="customer">
+			<column name="first_name" value="David" />
+			<column name="last_name" value="Red" />
+			<column name="company_name" value="David Red Company" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="primary_phone" value="7777777777"/>
+			<column name="status" value="Active" />
+		</insert>
+	</changeSet>
+	<changeSet author="VK" id="test_c_15">
+		<comment>add a few customers with duplicates last, first and company name</comment>
+		<insert tableName="customer">
+			<column name="first_name" value="David" />
+			<column name="last_name" value="Red" />
+			<column name="company_name" value="David Red Company" />
+			<column name="created" valueDate="2011-06-01 10:10:10"/>
+			<column name="primary_phone" value="7777777777"/>
+			<column name="status" value="Active" />
+		</insert>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,8 @@
+**/.settings
+**/.project
+**/.classpath
+**/target
+**/velocity.log*
+/tomcat
+/db/*.bat
+/LICENSE.txt

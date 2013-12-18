@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<meta charset="utf-8" />
+
+	<title wicket:id="title">Payment Report</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/reset-fonts-grids-min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/base-min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/printstyle.css"/>
+</head>
+<body>
+	<div wicket:id="preview"><wicket:panel><div class="invoicePrint">
+<!-- Invoice Header -->
+	<div class="clearFloat entryForm width">
+    	<table class="headerTable">
+			<tr>
+				<!-- Company Information -->
+        		<td valigh="top" width="40%">
+        			<div class="company">
+						<br/>
+                    	<div class="large"></div>
+                    </div>
+                </td>
+				<!-- Title-->
+        		<td valigh="top" width="60%">
+            		<label class="label">
+						<span class="extralarge">P A Y M E N T&nbsp;&nbsp;&nbsp;&nbsp;R E P O R T</span>&nbsp;
+					</label>
+					                		<label class="label large">
+                			Agent:&nbsp;&nbsp;Name Test0
+                		</label>
+										<label class="label large">
+						Period:&nbsp;&nbsp;
+						September 1, 2011
+						&nbsp;-&nbsp;
+						September 30, 2011
+					</label>
+            	</td>
+			</tr>
+        </table>
+    </div>
+<!-- product Distribution -->
+    <div class="clearFloat width">
+    	<table class="dataview">
+    		<tr>
+				<th>Payment Type</th>
+    			<th class="numberAlign">Count</th>
+        		<th class="numberAlign">Amount</th>
+    			<th class="numberAlign">Reconciled</th>
+    			    				<th>Payment Date</th>
+    				<th>Invoice Number</th>
+    				<th>Invoice Date</th>
+    				<th>Customer Name</th>
+				    		</tr>
+    						<tr	style="font-weight: bold;">
+      				<td>CreditCard</td>
+               		<td class="numberAlign">1</td>
+               		<td class="numberAlign">$400.00</td>
+               		<td class="numberAlign">$0.00</td>
+        			    					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    								</tr>
+    			        			            			<tr>
+              				<td></td>
+                       		<td></td>
+                       		<td class="numberAlign">$400.00</td>
+        					<td class="numberAlign">
+        															<img src="../images/blank.png"/>
+        						        					</td>
+                			<td>September 20, 2011</td>
+                			<td>0000000000</td>
+                			<td>September 10, 2011</td>
+                			<td>Mr Customerfirstname0 Customerlastname0</td>
+                		</tr>
+										<tr style="height: 0.5em;">
+					</tr>
+    			    		    	</table>
+    </div>
+</div>
+</wicket:panel></div>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="../js/travelagency.js"></script>
+<script type="text/javascript">/*<![CDATA[*/$(function(){TravelAgency.buttons();});/*]]>*/</script>
+</body>
+</html>

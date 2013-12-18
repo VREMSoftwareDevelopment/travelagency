@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+	<display-name>travelagency</display-name>
+
+	<filter>
+		<filter-name>OpenEntityManagerInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenEntityManagerInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!--
+		There are three means to configure Wickets configuration mode and they
+		are tested in the order given.
+
+		1) A system property: -Dwicket.configuration
+		2) servlet specific <init-param>
+		3) context specific <context-param>
+
+		The value might be either "development" (reloading when templates change) or
+		"deployment". If no configuration is found, "development" is the default. -->
+
+	<filter>
+		<filter-name>wicketfilter</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationFactoryClassName</param-name>
+			<param-value>org.apache.wicket.spring.SpringWebApplicationFactory</param-value>
+		</init-param>
+		<init-param>
+			<param-name>configuration</param-name>
+			<param-value>deployment</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>wicketfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>authenticationFilter</filter-name>
+		<filter-class>ca.travelagency.webservice.AuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>authenticationFilter</filter-name>
+		<url-pattern>/webservice/*</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>WebserviceSample</servlet-name>
+		<servlet-class>ca.travelagency.webservice.SampleWebservice</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WebserviceSample</servlet-name>
+		<url-pattern>/webservice/sample/*</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:domainContext.xml</param-value>
+	</context-param>
+</web-app>

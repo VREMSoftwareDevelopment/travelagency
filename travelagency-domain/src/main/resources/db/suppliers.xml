@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="VK" id="supplier_1">
+		<sql>
+			INSERT INTO supplier (name) VALUES ('Air Berlin');
+			INSERT INTO supplier (name) VALUES ('Air Canada Jazz');
+			INSERT INTO supplier (name) VALUES ('Air Canada Vacations');
+			INSERT INTO supplier (name) VALUES ('Air Canada');
+			INSERT INTO supplier (name) VALUES ('Air China');
+			INSERT INTO supplier (name) VALUES ('Air Express Ontario');
+			INSERT INTO supplier (name) VALUES ('Air France');
+			INSERT INTO supplier (name) VALUES ('Air Transat');
+			INSERT INTO supplier (name) VALUES ('Alaska Airlines');
+			INSERT INTO supplier (name) VALUES ('Allegiant Air');
+			INSERT INTO supplier (name) VALUES ('American Airlines');
+			INSERT INTO supplier (name) VALUES ('American Eagle Airlines');
+			INSERT INTO supplier (name) VALUES ('Asiana Airlines');
+			INSERT INTO supplier (name) VALUES ('Austrian Airlines');
+			INSERT INTO supplier (name) VALUES ('British Airways');
+			INSERT INTO supplier (name) VALUES ('Caribe Sol');
+			INSERT INTO supplier (name) VALUES ('Cathay Pacific');
+			INSERT INTO supplier (name) VALUES ('China Eastern Airlines');
+			INSERT INTO supplier (name) VALUES ('China Southern Airlines');
+			INSERT INTO supplier (name) VALUES ('Continental Airlines');
+			INSERT INTO supplier (name) VALUES ('Delta Air Lines');
+			INSERT INTO supplier (name) VALUES ('Easyjet');
+			INSERT INTO supplier (name) VALUES ('Emirates');
+			INSERT INTO supplier (name) VALUES ('Hola Sun');
+			INSERT INTO supplier (name) VALUES ('Japan Airlines');
+			INSERT INTO supplier (name) VALUES ('Jetblue Airways');
+			INSERT INTO supplier (name) VALUES ('Klm');
+			INSERT INTO supplier (name) VALUES ('Korean Air');
+			INSERT INTO supplier (name) VALUES ('Lan Airlines');
+			INSERT INTO supplier (name) VALUES ('Lufthansa');
+			INSERT INTO supplier (name) VALUES ('Nolitours Vacations');
+			INSERT INTO supplier (name) VALUES ('Northwest Airlines');
+			INSERT INTO supplier (name) VALUES ('Porter Airlines');
+			INSERT INTO supplier (name) VALUES ('Qantas');
+			INSERT INTO supplier (name) VALUES ('Qatar Airways');
+			INSERT INTO supplier (name) VALUES ('Ryanair');
+			INSERT INTO supplier (name) VALUES ('Sas');
+			INSERT INTO supplier (name) VALUES ('Shanghai Airlines');
+			INSERT INTO supplier (name) VALUES ('Signature Vacations');
+			INSERT INTO supplier (name) VALUES ('Singapore Airlines');
+			INSERT INTO supplier (name) VALUES ('Skywest Airlines');
+			INSERT INTO supplier (name) VALUES ('Southwest Airlines');
+			INSERT INTO supplier (name) VALUES ('Sunquest Vacations');
+			INSERT INTO supplier (name) VALUES ('Sunwing Vacations');
+			INSERT INTO supplier (name) VALUES ('Tmr Vacations');
+			INSERT INTO supplier (name) VALUES ('Transat Holidays');
+			INSERT INTO supplier (name) VALUES ('Turkish Airlines');
+			INSERT INTO supplier (name) VALUES ('United Airlines');
+			INSERT INTO supplier (name) VALUES ('Us Airways');
+			INSERT INTO supplier (name) VALUES ('Westjet Vacations');
+			INSERT INTO supplier (name) VALUES ('Westjet');
+		</sql>
+	</changeSet>
+</databaseChangeLog>
