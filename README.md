@@ -1,8 +1,7 @@
-Travel Agency Software
-======================
+##Travel Agency Software
 
-*Business Features:*
---------------------
+
+####*Business Features:*
 - Customer Relationship Management
 - Itinerary Creation
 - Invoicing/Billing/Payment Processing
@@ -11,8 +10,7 @@ Travel Agency Software
 - Agents Commissions Reconciliation
 - Various Reporting
 
-*Technical Features:*
----------------------
+####*Technical Features:*
 - JAVA
 - Javascript
 - CSS
