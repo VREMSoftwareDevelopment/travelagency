@@ -1,16 +1,25 @@
 Travel Agency Software
+======================
 
-Business Features:
-	1.	CRM - Customer Relationship Management
-	2.	Itinerary Creation
-	3.	Invoicing/Billing/Payment Processing
-	4.	Agents Maintenance
-	5.	Invoicing Reconciliation
-	6.	Agents Commissions Reconciliation
-	7.	Various Reporting
+*Business Features:*
+--------------------
+- Customer Relationship Management
+- Itinerary Creation
+- Invoicing/Billing/Payment Processing
+- Agents Maintenance
+- Invoicing Reconciliation
+- Agents Commissions Reconciliation
+- Various Reporting
 
-Technical Features:
-	1.	JAVA, Javascript, CSS, HTML
-	2.	Spring, Hibernate, Wicket, jQuery
-	3.	PostgreSQL
-	4.	Maven
+*Technical Features:*
+---------------------
+- JAVA
+- Javascript
+- CSS
+- HTML
+- Spring
+- Hibernate
+- Wicket
+- jQuery
+- PostgreSQL
+- Maven
