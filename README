@@ -1,23 +1,60 @@
-##Travel Agency Software
+Travel Agency Software
+======================
 
+Business Features:
+------------------
+Main Features:
+	1.	CRM - Customer Relationship Management
+	2.	Itinerary Creation
+	3.	Invoicing/Billing/Payment Processing
+	4.	Agents Maintenance
+	5.	Invoicing Reconciliation
+	6.	Agents Commissions Reconciliation
+	7.	Various Reporting
 
-####*Business Features:*
-- Customer Relationship Management
-- Itinerary Creation
-- Invoicing/Billing/Payment Processing
-- Agents Maintenance
-- Invoicing Reconciliation
-- Agents Commissions Reconciliation
-- Various Reporting
+Agent Features:
+	1.	Dashboard
+		-	Quick access to unpaid and partially paid invoices
+		-	Monthly sales summary includes sales, commissions and HST payable
+		-	Quick access to outstanding customer invoice details
+	2.	Customers / Travellers
+		-	Easy access to customers and their profiles.
+		-	Quick access to traveller history.
+		-	Detailed travel information.
+	3.	Invoices
+		-	Quick and easy entry of required information
+		-	Easy retrieval using any key word used within invoice 
+		-	Quick access to invoice details
+		-	Billable customer (or company), travel itinerary, detailed travellers’ information, purchased product information (price, taxes, quantity, commission and HST payable tracking), consolidator information.
+		-	Ability to enter invoice notes (displayed on invoice) as well as private agent notes.
+		-	Ability to enter different types of payments
+		-	System handles unlimited destinations, travellers, products, notes and payments.
+		-	Invoice preview available before printing
+	4.	Reporting (Summary and Detail)
+		-	Sales Journal
+		-	Earned Commissions
+		-	Sales by Consolidator
+		-	Outstanding Invoices
+	5.	Agent Profile
+		-	Ability to modify contact information
+		-	Ability to change access password
 
-####*Technical Features:*
-- JAVA
-- Javascript
-- CSS
-- HTML
-- Spring
-- Hibernate
-- Wicket
-- jQuery
-- PostgreSQL
-- Maven
+Technical Features:
+------------------
+	1.	Languages
+		-	JAVA
+		-	Javascript
+		-	CSS 
+		-	HTML
+	2.	Server
+		-	Spring
+		-	Hibernate
+	3.	Client
+		-	Wicket
+		-	jQuery
+		-	jQuery UI
+	3.	Database
+		-	PostgreSQL
+	4.	Build and Dependency Tool
+		-	Maven
+			
