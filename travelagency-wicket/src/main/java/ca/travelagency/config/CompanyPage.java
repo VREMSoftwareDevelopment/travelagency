@@ -31,7 +31,7 @@ import org.apache.wicket.util.lang.Bytes;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.CityField;
 import ca.travelagency.components.fields.CountryField;
@@ -113,51 +113,51 @@ public class CompanyPage extends BasePage {
 		form.add(new RequiredTextField<String>(DaoEntity.PROPERTY_NAME)
 			.setLabel(new ResourceModel("company.name"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.address.name())
 			.setLabel(new ResourceModel("company.address"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CityField(Company.Properties.city.name())
 			.setLabel(new ResourceModel("company.city"))
 			.add(StringFieldHelper.maxLenFieldValidator())
 			.setRequired(true)
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new ProvinceField(Company.Properties.province.name())
 			.setLabel(new ResourceModel("company.province"))
 			.setRequired(true)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.postalCode.name())
 			.setLabel(new ResourceModel("company.postalCode"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CountryField(Company.Properties.country.name())
 			.setLabel(new ResourceModel("company.country"))
 			.setRequired(true)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.email.name())
 			.setLabel(new ResourceModel("company.email"))
 			.add(StringFieldHelper.maxLenFieldValidator())
 			.add(EmailAddressValidator.getInstance())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.phoneNumber.name())
 			.setLabel(new ResourceModel("company.phone"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.faxNumber.name())
 			.setLabel(new ResourceModel("company.fax"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.taxNumber.name())
 			.setLabel(new ResourceModel("company.HSTNumber"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new RequiredTextField<String>(Company.Properties.ticoNumber.name())
 			.setLabel(new ResourceModel("company.TICONumber"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new SavePanel<Company>(SAVE_BUTTON, form));
 		form.add(new ResetPanel<Company>(RESET_BUTTON, form));

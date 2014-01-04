@@ -27,7 +27,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.CancelDepartureField;
 import ca.travelagency.components.fields.ChangeDepartureField;
@@ -75,48 +75,48 @@ public class ItemFormPanel extends Panel {
 			.setRequired(true)
 			.setLabel(new ResourceModel("itemProduct"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new SupplierField(InvoiceItem.Properties.supplier.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("itemSupplier"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new TextField<BigDecimal>(InvoiceItem.Properties.commission.name())
 			.setLabel(new ResourceModel("itemCommission"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new TextField<BigDecimal>(InvoiceItem.Properties.taxOnCommission.name())
 			.setLabel(new ResourceModel("itemHSTOnCommission"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new TextField<BigDecimal>(InvoiceItem.Properties.price.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("itemPrice"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new TextField<BigDecimal>(InvoiceItem.Properties.tax.name())
 			.setLabel(new ResourceModel("itemTax"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new CancelDepartureField(InvoiceItem.Properties.cancelBeforeDeparture.name())
 			.setLabel(new ResourceModel("itemCancelBeforeDeparture"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new ChangeDepartureField(InvoiceItem.Properties.changeBeforeDeparture.name())
 			.setLabel(new ResourceModel("itemChangeBeforeDeparture"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new ChangeDepartureField(InvoiceItem.Properties.changeAfterDeparture.name())
 			.setLabel(new ResourceModel("itemChangeAfterDeparture"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new TextField<Integer>(InvoiceItem.Properties.qty.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("itemQty"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new TextField<String>(InvoiceItem.Properties.bookingNumber.name())
 			.setLabel(new ResourceModel("itemBookingNumber"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(new DateField(InvoiceItem.Properties.bookingDate.name())
 			.setLabel(new ResourceModel("itemBookingDate"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		itemForm.add(commissionStatusField(model));
 
 		itemForm.add(new SavePanelDetail<InvoiceItem>(SAVE_BUTTON, itemForm) {
@@ -161,7 +161,7 @@ public class ItemFormPanel extends Panel {
 			commissionStatusField.setChoices(Lists.newArrayList(CommissionStatus.NotVerified));
 		}
 		commissionStatusField.setLabel(new ResourceModel("itemCommissionStatus"));
-		commissionStatusField.add(new FieldDecorator(), new AjaxOnBlurBehaviour());
+		commissionStatusField.add(new FieldDecorator(), new AjaxOnBlurBehavior());
 		return commissionStatusField;
 	}
 

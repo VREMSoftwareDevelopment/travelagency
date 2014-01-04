@@ -24,7 +24,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.StringFieldHelper;
 import ca.travelagency.persistence.DaoEntity;
@@ -47,7 +47,7 @@ public class SearchPanel<T extends DaoEntity, U extends SearchFilter<T>> extends
 		form.add(new TextField<String>(SearchFilter.Properties.searchText.name())
 			.setLabel(new ResourceModel(SearchFilter.Properties.searchText.name()))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SEARCH_BUTTON) {
 			private static final long serialVersionUID = 1L;

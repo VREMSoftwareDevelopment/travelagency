@@ -37,7 +37,7 @@ import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.BasePage;
 import ca.travelagency.components.NumberPropertyColumn;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.dataprovider.DataProvider;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.DateField;
@@ -91,22 +91,22 @@ public class PaymentPage extends BasePage {
 		form.add(new SupplierField(InvoicePaymentFilter.Properties.searchText.name())
 			.setLabel(new ResourceModel("paymentPage.filter.searchText"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SystemUserField(InvoicePaymentFilter.Properties.systemUser.name())
 			.setLabel(new ResourceModel("paymentPage.filter.systemUser"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DropDownChoice<PaymentType>(InvoicePaymentFilter.Properties.paymentType.name(), Lists.newArrayList(PaymentType.values()))
 			.setLabel(new ResourceModel("paymentPage.filter.paymentType"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CheckBox(InvoicePaymentFilter.Properties.reconciled.name())
 			.setLabel(new ResourceModel("paymentPage.filter.reconciled"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(InvoicePaymentFilter.Properties.paymentDateFrom.name())
 			.setLabel(new ResourceModel("paymentPage.filter.dateFrom"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(InvoicePaymentFilter.Properties.paymentDateTo.name())
 			.setLabel(new ResourceModel("paymentPage.filter.dateTo"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SEARCH_BUTTON) {
 			private static final long serialVersionUID = 1L;

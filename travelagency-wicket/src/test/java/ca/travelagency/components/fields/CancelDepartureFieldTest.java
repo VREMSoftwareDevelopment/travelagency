@@ -28,7 +28,7 @@ public class CancelDepartureFieldTest extends BaseWicketTester {
 	@Test
 	public void testRender() throws Exception {
 		// setup
-		CancelDepartureField fixture = new CancelDepartureField("id");
+		CancelDepartureField fixture = new CancelDepartureField(COMPONENT_ID);
 		// execute
 		Iterator<String> choices = fixture.getChoices("xyz");
 		// validate

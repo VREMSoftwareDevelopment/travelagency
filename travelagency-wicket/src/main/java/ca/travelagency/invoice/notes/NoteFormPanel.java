@@ -25,7 +25,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.StringFieldHelper;
 import ca.travelagency.components.formdetail.CancelPanel;
@@ -64,10 +64,10 @@ public class NoteFormPanel  extends Panel {
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoiceNote.note"))
 			.add(StringFieldHelper.maxLenAreaValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		noteForm.add(new CheckBox(InvoiceNote.Properties.privateNote.name())
 			.setLabel(new ResourceModel("invoiceNote.private"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		noteForm.add(new SavePanelDetail<InvoiceNote>(SAVE_BUTTON, noteForm) {
 			private static final long serialVersionUID = 1L;

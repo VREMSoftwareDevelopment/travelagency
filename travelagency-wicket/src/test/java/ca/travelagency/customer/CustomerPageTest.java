@@ -31,9 +31,9 @@ import org.mockito.Mockito;
 
 import ca.travelagency.BasePage;
 import ca.travelagency.BaseWicketTester;
+import ca.travelagency.components.fields.BirthDateField;
 import ca.travelagency.components.fields.CityField;
 import ca.travelagency.components.fields.CountryField;
-import ca.travelagency.components.fields.DateField;
 import ca.travelagency.components.fields.ProvinceField;
 import ca.travelagency.components.fields.SalutationField;
 import ca.travelagency.components.fields.SystemUserField;
@@ -88,7 +88,7 @@ public class CustomerPageTest extends BaseWicketTester {
 		tester.assertComponent(PATH+Customer.Properties.secondaryPhone, TextField.class);
 		tester.assertComponent(PATH+Customer.Properties.notes, TextArea.class);
 		tester.assertComponent(PATH+Customer.Properties.systemUser, SystemUserField.class);
-		tester.assertComponent(PATH+Customer.Properties.dateOfBirth, DateField.class);
+		tester.assertComponent(PATH+Customer.Properties.dateOfBirth, BirthDateField.class);
 		tester.assertComponent(PATH+Customer.Properties.travelDocumentNumber, TextField.class);
 		tester.assertComponent(PATH+Customer.Properties.travelDocumentType, TravelDocumentField.class);
 

@@ -39,7 +39,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.dataprovider.DataProvider;
 import ca.travelagency.components.decorators.BlockUIDecorator;
 import ca.travelagency.components.decorators.FieldDecorator;
@@ -82,7 +82,7 @@ public class TravelerLookupPanel extends Panel {
 		form.add(new TextField<String>(TravelerFilter.Properties.searchText.name())
 			.setLabel(new ResourceModel("travelerLookupPanel.searchText"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new SearchButton(SEARCH, form));
 	}

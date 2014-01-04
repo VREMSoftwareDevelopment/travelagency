@@ -32,8 +32,9 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
+import ca.travelagency.components.fields.BirthDateField;
 import ca.travelagency.components.fields.CityField;
 import ca.travelagency.components.fields.CountryField;
 import ca.travelagency.components.fields.DateField;
@@ -86,81 +87,81 @@ public class CustomerPage extends BasePage {
 			.setRequired(true)
 			.setLabel(new ResourceModel("customer.status"))
 			.setEnabled(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SalutationField(Customer.Properties.salutation.name())
 			.setLabel(new ResourceModel("customer.salutation"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		LastNameField lastNameField = new LastNameField(Customer.Properties.lastName.name());
 		form.add(lastNameField
 			.setLabel(new ResourceModel("customer.lastName"))
 			.setRequired(true)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		FirstNameField firstNameField = new FirstNameField(Customer.Properties.firstName.name());
 		form.add(firstNameField
 			.setLabel(new ResourceModel("customer.firstName"))
 			.setRequired(true)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CompanyNameField(Customer.Properties.companyName.name())
 			.setLabel(new ResourceModel("customer.companyName"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(Customer.Properties.address.name())
 			.setLabel(new ResourceModel("customer.address"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CityField(Customer.Properties.city.name())
 			.setLabel(new ResourceModel("customer.city"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new ProvinceField(Customer.Properties.province.name())
 			.setLabel(new ResourceModel("customer.province"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(Customer.Properties.postalCode.name())
 			.setLabel(new ResourceModel("customer.postalCode"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CountryField(Customer.Properties.country.name())
 			.setLabel(new ResourceModel("customer.country"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(Customer.Properties.email.name())
 			.setLabel(new ResourceModel("customer.email"))
 			.add(StringFieldHelper.maxLenFieldValidator())
 			.add(EmailAddressValidator.getInstance())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		RequiredTextField<String> primaryPhoneNumber = new RequiredTextField<String>(Customer.Properties.primaryPhone.name());
 		form.add(primaryPhoneNumber
 			.setLabel(new ResourceModel("customer.primaryPhone"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(Customer.Properties.secondaryPhone.name())
 			.setLabel(new ResourceModel("customer.secondaryPhone"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehaviour()));
-		DateField dateOfBirthField = new DateField(Customer.Properties.dateOfBirth.name());
+			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehavior()));
+		DateField dateOfBirthField = new BirthDateField(Customer.Properties.dateOfBirth.name());
 		form.add(dateOfBirthField
 			.setLabel(new ResourceModel("customer.dateOfBirth"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextArea<String>(Customer.Properties.notes.name())
 			.setLabel(new ResourceModel("customer.notes"))
 			.add(StringFieldHelper.maxLenAreaValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SystemUserField(Customer.Properties.systemUser.name())
 			.setLabel(new ResourceModel("customer.agent"))
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TravelDocumentField(Customer.Properties.travelDocumentType.name())
 			.setLabel(new ResourceModel("customer.travelDocumentType"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(Customer.Properties.travelDocumentNumber.name())
 			.setLabel(new ResourceModel("customer.travelDocumentNumber"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new CustomerDuplicateValidator(lastNameField, firstNameField, primaryPhoneNumber, dateOfBirthField));
 

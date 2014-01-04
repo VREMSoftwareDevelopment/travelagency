@@ -36,7 +36,7 @@ import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.DateField;
 import ca.travelagency.components.fields.SystemUserField;
@@ -172,28 +172,28 @@ public class InvoicePage extends BasePage {
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.date"))
 			.setEnabled(invoiceModel.getObject().isActive())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(Invoice.Properties.totalDueDate.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.totalDueDate"))
 			.setEnabled(invoiceModel.getObject().isActive())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SystemUserField(Invoice.Properties.systemUser.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.agent"))
 			.setEnabled(invoiceModel.getObject().isActive())
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DropDownChoice<InvoiceStatus>(Invoice.Properties.status.name(), Arrays.asList(InvoiceStatus.values()))
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.status"))
 			.setEnabled(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CheckBox(Invoice.Properties.billCompany.name())
 			.setLabel(new ResourceModel("invoice.billCompany"))
 			.setVisible(StringUtils.isNotEmpty(customerPanel.getModelObject().getCompanyName()))
 			.setEnabled(invoiceModel.getObject().isActive())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new SavePanel<Invoice>(SAVE_BUTTON, form) {
 			private static final long serialVersionUID = 1L;

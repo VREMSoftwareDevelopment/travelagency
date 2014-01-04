@@ -40,7 +40,7 @@ import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.dataprovider.DataProvider;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.StringFieldHelper;
@@ -104,7 +104,7 @@ public abstract class LookupEntitiesPage<T extends DaoEntity> extends BasePage {
 		form.add(new TextField<String>(DaoEntity.PROPERTY_NAME)
 			.setLabel(resourceModel)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(FieldDecorator.inlineDisplayLabel(), new AjaxOnBlurBehaviour()));
+			.add(FieldDecorator.inlineDisplayLabel(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SEARCH_BUTTON) {
 			private static final long serialVersionUID = 1L;
@@ -151,7 +151,7 @@ public abstract class LookupEntitiesPage<T extends DaoEntity> extends BasePage {
 		RequiredTextField<String> textField = new RequiredTextField<String>(DaoEntity.PROPERTY_NAME);
 		textField.setLabel(resourceModel)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new AjaxOnBlurBehaviour(), new DuplicateValidator<T>(form));
+			.add(new AjaxOnBlurBehavior(), new DuplicateValidator<T>(form));
 		form.add(textField);
 		return textField;
 	}

@@ -13,15 +13,15 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package ca.travelagency.components.behaviours;
+package ca.travelagency.components.behaviors;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 
-public class AjaxOnBlurBehaviour extends AjaxFormComponentUpdatingBehavior {
+public class AjaxOnBlurBehavior extends AjaxFormComponentUpdatingBehavior {
 	private static final long serialVersionUID = 1L;
 
-	public AjaxOnBlurBehaviour() {
+	public AjaxOnBlurBehavior() {
 		super("onblur");
 	}
 

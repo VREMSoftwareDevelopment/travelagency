@@ -36,7 +36,7 @@ import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.BasePage;
 import ca.travelagency.components.NumberPropertyColumn;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.dataprovider.DataProvider;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.DateField;
@@ -92,19 +92,19 @@ public class CommissionPage extends BasePage {
 		form.add(new SupplierField(InvoiceItemFilter.Properties.searchText.name())
 			.setLabel(new ResourceModel("commissionPage.filter.searchText"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SystemUserField(InvoiceItemFilter.Properties.systemUser.name())
 			.setLabel(new ResourceModel("commissionPage.filter.systemUser"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DropDownChoice<CommissionStatus>(InvoiceItemFilter.Properties.commissionStatus.name(),	Lists.newArrayList(CommissionStatus.values()))
 			.setLabel(new ResourceModel("commissionPage.filter.commissionStatus"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(InvoiceItemFilter.Properties.invoiceDateFrom.name())
 			.setLabel(new ResourceModel("commissionPage.filter.dateFrom"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(InvoiceItemFilter.Properties.invoiceDateTo.name())
 			.setLabel(new ResourceModel("commissionPage.filter.dateTo"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SEARCH_BUTTON) {
 			private static final long serialVersionUID = 1L;

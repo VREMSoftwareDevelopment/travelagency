@@ -26,7 +26,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.formdetail.SavePanelDetail;
 import ca.travelagency.components.formheader.DaoEntityModelFactory;
@@ -53,7 +53,7 @@ public class RoleFormPanel extends Panel {
 
 		roleForm.add(new DropDownChoice<Role>(SystemUserRole.Properties.role.name(), Arrays.asList(Role.values()))
 			.setLabel(new ResourceModel("systemUser.role"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		roleForm.add(new SavePanelDetail<SystemUserRole>(SAVE_BUTTON, roleForm) {
 			private static final long serialVersionUID = 1L;

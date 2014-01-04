@@ -26,7 +26,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.CityField;
 import ca.travelagency.components.fields.DateField;
@@ -75,19 +75,19 @@ public class DestinationFormPanel extends Panel {
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.departurePlace"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		destinationForm.add(new DateField(InvoiceDestination.Properties.departureDate.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.departureDate"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		destinationForm.add(new CityField(InvoiceDestination.Properties.arrivalPlace.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.arrivalPlace"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		destinationForm.add(new DateField(InvoiceDestination.Properties.arrivalDate.name())
 			.setLabel(new ResourceModel("invoice.arrivalDate"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		destinationForm.add(new SavePanelDetail<InvoiceDestination>(SAVE_BUTTON, destinationForm) {
 			private static final long serialVersionUID = 1L;

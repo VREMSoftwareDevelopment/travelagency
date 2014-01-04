@@ -38,7 +38,7 @@ import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.StringFieldHelper;
 import ca.travelagency.components.formheader.DaoEntityModelFactory;
@@ -95,39 +95,39 @@ public class SystemUserPage extends BasePage {
 		RequiredTextField<String> name = new RequiredTextField<String>(DaoEntity.PROPERTY_NAME);
 		name.setLabel(new ResourceModel("systemUser.name"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour(), new DuplicateValidator<SystemUser>(form));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior(), new DuplicateValidator<SystemUser>(form));
 		form.add(name);
 		form.add(new TextField<String>(SystemUser.Properties.lastName.name())
 			.setLabel(new ResourceModel("systemUser.lastName"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(SystemUser.Properties.firstName.name())
 			.setLabel(new ResourceModel("systemUser.firstName"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(SystemUser.Properties.email.name())
 			.setLabel(new ResourceModel("systemUser.email"))
 			.add(StringFieldHelper.maxLenFieldValidator())
 			.add(EmailAddressValidator.getInstance())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(SystemUser.Properties.primaryPhone.name())
 			.setLabel(new ResourceModel("systemUser.primaryPhone"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new TextField<String>(SystemUser.Properties.secondaryPhone.name())
 			.setLabel(new ResourceModel("systemUser.secondaryPhone"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new PhoneNumberValidator(), new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CheckBox(SystemUser.Properties.active.name())
 			.setLabel(new ResourceModel("systemUser.active"))
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new NumberTextField<Double>(SystemUser.Properties.commissionRate.name())
 			.setMinimum(0.00)
 			.setMaximum(999.99)
 			.setLabel(new ResourceModel("systemUser.commissionRate"))
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		addPasswordFields(form);
 

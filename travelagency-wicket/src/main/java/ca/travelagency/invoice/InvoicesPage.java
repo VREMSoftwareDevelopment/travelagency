@@ -30,7 +30,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.DateField;
 import ca.travelagency.components.fields.StringFieldHelper;
@@ -69,23 +69,23 @@ public class InvoicesPage extends BasePage {
 		form.add(new TextField<String>(InvoiceFilter.Properties.searchText.name())
 			.setLabel(new ResourceModel("invoice.searchText"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CheckBox(InvoiceFilter.Properties.showUnpaidInvoicesOnly.name())
 			.setLabel(new ResourceModel("invoice.showUnpaidInvoicesOnly"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DropDownChoice<InvoiceStatus>(InvoiceFilter.Properties.status.name(), Arrays.asList(InvoiceStatus.values()))
 			.setLabel(new ResourceModel("invoice.status"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SystemUserField(InvoiceFilter.Properties.systemUser.name())
 			.setLabel(new ResourceModel("invoice.agent"))
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(InvoiceFilter.Properties.invoiceDateFrom.name())
 			.setLabel(new ResourceModel("invoice.dateFrom"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(InvoiceFilter.Properties.invoiceDateTo.name())
 			.setLabel(new ResourceModel("invoice.dateTo"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SEARCH_BUTTON) {
 			private static final long serialVersionUID = 1L;

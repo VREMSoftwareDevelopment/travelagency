@@ -24,7 +24,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.DateField;
 import ca.travelagency.components.fields.SystemUserField;
@@ -66,18 +66,18 @@ public class ReportsPage extends BasePage {
 		form.add(new SystemUserField(SalesSearch.Properties.systemUser.name())
 			.setLabel(new ResourceModel("agent"))
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(SalesSearch.Properties.dateFrom.name())
 			.setLabel(new ResourceModel("dateFrom"))
 			.setRequired(true)
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DateField(SalesSearch.Properties.dateTo.name())
 			.setLabel(new ResourceModel("dateTo"))
 			.setRequired(true)
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new CheckBox(SalesSearch.Properties.showDetails.name())
 			.setLabel(new ResourceModel("showDetails"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SALES_REPORT) {
 			private static final long serialVersionUID = 1L;

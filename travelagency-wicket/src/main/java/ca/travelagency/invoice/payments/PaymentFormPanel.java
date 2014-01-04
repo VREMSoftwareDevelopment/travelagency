@@ -30,7 +30,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.authentication.AuthenticatedSession;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.DateField;
 import ca.travelagency.components.formdetail.CancelPanel;
@@ -68,19 +68,19 @@ public class PaymentFormPanel extends Panel {
 
 		paymentForm.add(new RequiredTextField<BigDecimal>(InvoicePayment.Properties.amount.name())
 			.setLabel(new ResourceModel("invoice.paymentAmount"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		paymentForm.add(new CheckBox(InvoicePayment.Properties.reconciled.name())
 			.setLabel(new ResourceModel("invoice.paymentReconciled"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour())
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior())
 			.setVisible(hasRole(Role.ADMIN)));
 		paymentForm.add(new DropDownChoice<PaymentType>(InvoicePayment.Properties.paymentType.name(), Arrays.asList(PaymentType.values()))
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.paymentType"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		paymentForm.add(new DateField(InvoicePayment.Properties.date.name())
 			.setRequired(true)
 			.setLabel(new ResourceModel("invoice.paymentDate"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		paymentForm.add(new SavePanelDetail<InvoicePayment>(SAVE_BUTTON, paymentForm) {
 			private static final long serialVersionUID = 1L;

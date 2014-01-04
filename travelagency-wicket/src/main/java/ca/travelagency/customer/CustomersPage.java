@@ -40,7 +40,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.ResourceModel;
 
 import ca.travelagency.BasePage;
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.dataprovider.DataProvider;
 import ca.travelagency.components.decorators.FieldDecorator;
 import ca.travelagency.components.fields.StringFieldHelper;
@@ -163,14 +163,14 @@ public class CustomersPage extends BasePage {
 		form.add(new TextField<String>(CustomerFilter.Properties.searchText.name())
 			.setLabel(new ResourceModel("customer.searchText"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new DropDownChoice<CustomerStatus>(CustomerFilter.Properties.status.name(), Arrays.asList(CustomerStatus.values()))
 			.setLabel(new ResourceModel("customer.status"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		form.add(new SystemUserField(CustomerFilter.Properties.systemUser.name())
 			.setLabel(new ResourceModel("customer.agent"))
 			.setVisible(hasRole(Role.ADMIN))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		form.add(new Button(SEARCH_BUTTON) {
 			private static final long serialVersionUID = 1L;

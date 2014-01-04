@@ -25,9 +25,9 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import ca.travelagency.components.behaviours.AjaxOnBlurBehaviour;
+import ca.travelagency.components.behaviors.AjaxOnBlurBehavior;
 import ca.travelagency.components.decorators.FieldDecorator;
-import ca.travelagency.components.fields.DateField;
+import ca.travelagency.components.fields.BirthDateField;
 import ca.travelagency.components.fields.SalutationField;
 import ca.travelagency.components.fields.StringFieldHelper;
 import ca.travelagency.components.fields.TravelDocumentField;
@@ -78,28 +78,28 @@ public class TravelerFormPanel extends Panel {
 		travelerForm.add(new SalutationField(InvoiceTraveler.Properties.salutation.name())
 			.setLabel(new ResourceModel("travelerFormPanel.salutation"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		travelerForm.add(new LastNameField(InvoiceTraveler.Properties.lastName.name())
 			.setLabel(new ResourceModel("travelerFormPanel.lastName"))
 			.setRequired(true)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		travelerForm.add(new FirstNameField(InvoiceTraveler.Properties.firstName.name())
 			.setLabel(new ResourceModel("travelerFormPanel.firstName"))
 			.setRequired(true)
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		travelerForm.add(new TravelDocumentField(InvoiceTraveler.Properties.documentType.name())
 			.setLabel(new ResourceModel("travelerFormPanel.document"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 		travelerForm.add(new TextField<String>(InvoiceTraveler.Properties.documentNumber.name())
 			.setLabel(new ResourceModel("travelerFormPanel.documentNumber"))
 			.add(StringFieldHelper.maxLenFieldValidator())
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
-		travelerForm.add(new DateField(InvoiceTraveler.Properties.dateOfBirth.name())
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
+		travelerForm.add(new BirthDateField(InvoiceTraveler.Properties.dateOfBirth.name())
 			.setLabel(new ResourceModel("travelerFormPanel.dateOfBirth"))
-			.add(new FieldDecorator(), new AjaxOnBlurBehaviour()));
+			.add(new FieldDecorator(), new AjaxOnBlurBehavior()));
 
 		travelerForm.add(new SavePanelDetail<InvoiceTraveler>(SAVE_BUTTON, travelerForm) {
 			private static final long serialVersionUID = 1L;

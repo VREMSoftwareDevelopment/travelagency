@@ -24,7 +24,7 @@ import org.mockito.Mockito;
 
 import ca.travelagency.BasePage;
 import ca.travelagency.BaseWicketTester;
-import ca.travelagency.components.fields.DateField;
+import ca.travelagency.components.fields.BirthDateField;
 import ca.travelagency.components.fields.SalutationField;
 import ca.travelagency.components.fields.TravelDocumentField;
 import ca.travelagency.components.formdetail.CancelPanel;
@@ -80,7 +80,7 @@ public class TravelerFormPanelTest extends BaseWicketTester {
 		tester.assertComponent(FORM_PATH+InvoiceTraveler.Properties.lastName, LastNameField.class);
 		tester.assertComponent(FORM_PATH+InvoiceTraveler.Properties.documentType, TravelDocumentField.class);
 		tester.assertComponent(FORM_PATH+InvoiceTraveler.Properties.documentNumber, TextField.class);
-		tester.assertComponent(FORM_PATH+InvoiceTraveler.Properties.dateOfBirth, DateField.class);
+		tester.assertComponent(FORM_PATH+InvoiceTraveler.Properties.dateOfBirth, BirthDateField.class);
 
 		Mockito.verify(daoSupport, Mockito.atLeastOnce()).find(InvoiceTraveler.class, invoiceTraveler.getId());
 	}
