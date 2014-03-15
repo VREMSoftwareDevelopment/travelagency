@@ -34,8 +34,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.text.WordUtils;
-import org.hibernate.annotations.Sort;
-import org.hibernate.annotations.SortType;
+import org.hibernate.annotations.SortNatural;
 import org.jasypt.util.password.BasicPasswordEncryptor;
 
 import ca.travelagency.persistence.DaoEntity;
@@ -82,7 +81,7 @@ public class SystemUser implements DaoEntity, Comparable<SystemUser> {
 	@OneToMany(cascade={CascadeType.ALL}, orphanRemoval=true, fetch=FetchType.EAGER)
 	@JoinColumn(name="system_user_id", nullable=false)
 	// have to use hibernate annotation
-	@Sort(type = SortType.NATURAL)
+	@SortNatural
 	private SortedSet<SystemUserRole> systemUserRoles = new TreeSet<SystemUserRole>();
 
 	// used only for testing

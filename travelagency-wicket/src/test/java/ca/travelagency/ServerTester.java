@@ -72,7 +72,7 @@ public enum ServerTester {
 		JdbcConnection jdbcConnection = new JdbcConnection(connection);
         FileSystemResourceAccessor resourceAccessor = new FileSystemResourceAccessor();
 		Liquibase liquibase = new Liquibase("../db/test/db-changelog.xml", resourceAccessor, jdbcConnection);
-		liquibase.update(null);
+		liquibase.update((String) null);
 	}
 
 	public void stop() throws Exception {

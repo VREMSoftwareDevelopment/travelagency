@@ -40,8 +40,7 @@ import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.hibernate.annotations.Sort;
-import org.hibernate.annotations.SortType;
+import org.hibernate.annotations.SortNatural;
 
 import ca.travelagency.customer.Customer;
 import ca.travelagency.identity.SystemUser;
@@ -108,19 +107,19 @@ public class Invoice implements DaoEntity {
 	@OneToMany(cascade={CascadeType.ALL}, orphanRemoval=true)
 	@JoinColumn(name="invoice_id", nullable=false)
 	// have to use hibernate annotation
-	@Sort(type = SortType.NATURAL)
+	@SortNatural
 	private SortedSet<InvoiceDestination> invoiceDestinations = new TreeSet<InvoiceDestination>();
 
 	@OneToMany(cascade={CascadeType.ALL}, orphanRemoval=true)
 	@JoinColumn(name="invoice_id", nullable=false)
 	// have to use hibernate annotation
-	@Sort(type = SortType.NATURAL)
+	@SortNatural
 	private SortedSet<InvoiceTraveler> invoiceTravelers = new TreeSet<InvoiceTraveler>();
 
 	@OneToMany(cascade={CascadeType.ALL}, orphanRemoval=true)
 	@JoinColumn(name="invoice_id", nullable=false)
 	// have to use hibernate annotation
-	@Sort(type = SortType.NATURAL)
+	@SortNatural
 	private SortedSet<InvoiceNote> invoiceNotes = new TreeSet<InvoiceNote>();
 
 	@OneToMany(cascade={CascadeType.ALL}, orphanRemoval=true, mappedBy="invoice")
@@ -128,7 +127,7 @@ public class Invoice implements DaoEntity {
 
 	@OneToMany(cascade={CascadeType.ALL}, orphanRemoval=true, mappedBy="invoice")
 	// have to use hibernate annotation
-	@Sort(type = SortType.NATURAL)
+	@SortNatural
 	private SortedSet<InvoicePayment> invoicePayments = new TreeSet<InvoicePayment>();
 
 	// used only for testing
