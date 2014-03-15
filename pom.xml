@@ -21,7 +21,7 @@
 		<jetty.version>8.1.13.v20130916</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+	
 	<dependencyManagement>
 		<dependencies>
 			<!-- Log4j -->
@@ -257,6 +257,7 @@
 			<!-- maven license options http://code.google.com/p/maven-license-plugin -->
 			<!-- mvn license:format will populate every file with LICENSE.txt -->
 			<!-- mvn license:check will check every file for LICENSE.txt -->
+			<!-- 
 			<plugin>
 				<inherited>false</inherited>
 				<groupId>com.mycila.maven-license-plugin</groupId>
@@ -286,6 +287,15 @@
 					</execution>
 				</executions>
 			</plugin>
+			 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12.4</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+		    </plugin>
 		</plugins>
 	</build>
 

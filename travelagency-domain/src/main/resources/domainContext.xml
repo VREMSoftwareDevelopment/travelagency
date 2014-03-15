@@ -13,12 +13,21 @@
 
 	<context:property-placeholder location="classpath:application.properties" />
 
+	<bean class="java.net.URI" id="dbUrl">
+	    <constructor-arg value="${DATABASE_URL}"/>
+	</bean>
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${dataSource.driver}" />
+		<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() +'?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory'}"/>
+    	<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+    	<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+		<!-- 
 		<property name="url" value="${dataSource.url}" />
 		<property name="username" value="${dataSource.username}" />
 		<property name="password" value="${dataSource.password}" />
-
+ 		-->
+ 		
 		<!-- REQUIRED -->
 		<property name="maxActive" value="20" />
 		<property name="maxIdle" value="8" />
