@@ -44,7 +44,7 @@ public class DateUtilsTest {
 		Assert.assertEquals("July 21, 2011", DateUtils.formatDate(date));
 		Assert.assertEquals("21/07/11", DateUtils.formatDateShort(date));
 		Assert.assertEquals("2011 Jul", DateUtils.formatDateAsMonth(date));
-		Assert.assertEquals("July 21, 2011 2:15:00 EDT PM", DateUtils.formatDateTime(date));
+		Assert.assertEquals("July 21, 2011 2:15:00 -04:00 PM", DateUtils.formatDateTime(date));
 	}
 
 	@Test
